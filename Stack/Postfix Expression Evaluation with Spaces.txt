@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+#include<stdlib.h>
+typedef struct node{
+	int  data;
+	struct node* next;
+}node ;
+
+void push(int val, node** top)
+{
+	node* nn= (node*)malloc(sizeof(node));
+	nn->data=val;
+	nn->next=*top;
+	*top=nn;
+}
+
+void pop(node** top)
+{
+	struct node* temp=*top;
+	*top=temp->next;
+	free(temp);
+	temp = NULL;
+
+}
+int peek(node* top)
+{
+return top->data;
+}
+bool isempty(node* top)
+{
+	if(top == NULL)
+	return 1;
+	return 0;
+}
+int isOperator(char ch)
+{
+  if(ch=='+'||ch=='-'||ch=='*'||ch=='/'){
+    return 1;
+  }
+  else
+    return 0;
+}
+int main(){
+  char ch[100];
+  scanf("%[^\n]%*c",ch);
+  int res=0,i=0,a,b;
+  node* stack=NULL;
+  int x=0;
+  while(ch[i]!='\0')
+  {
+    if(ch[i]==32){
+      i++;
+      //printf("%d ",x);
+      if(x!=0)
+      push(x,&stack);
+      x=0;
+      continue;
+    }
+    else if(!isOperator(ch[i]))
+    {
+      //push(ch[i]-'0',&stack);
+      x=x*10+(ch[i]-'0');
+    }
+    else
+    {
+      b=peek(stack);
+      pop(&stack);
+      a=peek(stack);
+      pop(&stack);
+      if(ch[i]=='+'){
+        push((a+b),&stack);
+      }
+      else if(ch[i]=='-'){
+        push((a-b),&stack);
+      }
+      else if(ch[i]=='*'){
+        push((a*b),&stack);
+      }
+      else if(ch[i]=='/'){
+        push((a/b),&stack);
+      }
+    }
+    i++;
+  }
+  printf("%d",peek(stack));
+  return 0;
+}

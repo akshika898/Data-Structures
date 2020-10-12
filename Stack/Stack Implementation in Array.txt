@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int arr[10];
+int top=-1;
+
+void push(int num)
+{
+    if(top==10)
+    {
+        printf("Stack Overflow");
+        return;
+    }
+    top++;
+    arr[top]=num;
+}
+
+int pop()
+{
+    if(top==-1)
+    {
+        printf("Stack is empty!");
+        return -1;
+    }
+    return arr[top--];
+}
+
+int peek()
+{
+    return arr[top];
+}
+
+int main()
+{
+    push(10);
+    push(20);
+    printf("%d ",pop());
+    printf("%d ",pop());
+
+    return 0;
+}

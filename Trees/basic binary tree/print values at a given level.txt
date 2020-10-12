@@ -1,0 +1,13 @@
+static void print(Node root,int level)
+  {
+      if(root==null)
+      return;
+      if(level==1)
+      {
+          System.out.print(root.data+" ");
+          return;
+      }
+      print(root.left,level-1);
+      print(root.right,level-1);
+      
+  }

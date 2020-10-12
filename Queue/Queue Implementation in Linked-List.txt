@@ -1,0 +1,39 @@
+/*
+struct QNode	{	int data; struct QNode *next; };
+struct QueueLL	{	struct QNode *front,*rear; };
+struct QueueLL *main_Queue;
+struct QNode* newElement(int data);
+
+Above strcutures and variables are used for queue.
+Also newElement(int) function will insert a new node and return the address of new node.
+Complete the below two methods. */
+
+int enqueue(int data)
+{
+  struct QNode* new_node=newElement(data);
+  if(main_Queue->front==NULL && main_Queue->rear==NULL)
+  {
+    main_Queue->front=new_node;
+    main_Queue->rear=new_node;
+    //main_Queue=new_node;
+    return 1;
+  }
+  main_Queue->rear->next=new_node;
+  main_Queue->rear=main_Queue->rear->next;
+  return 1;
+}
+
+int dequeue()
+{
+  if(main_Queue->front==NULL)
+  {
+    return -1;
+  }
+  int item=main_Queue->front->data;
+  main_Queue->front=main_Queue->front->next;
+  if(main_Queue->front==NULL)
+  {
+    main_Queue->rear=NULL;
+  }
+  return item;
+}

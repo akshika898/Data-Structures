@@ -1,0 +1,36 @@
+/* struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+Above structure is used to define the linked list, You have to complete the below functions only */
+
+struct Node* listCut(struct Node* head)
+{
+  if(!head)
+  {
+    return head;
+  }
+  struct Node* prev=head;
+  struct Node* slow=head;
+  struct Node* fast=head;
+  
+  while(1)
+  {
+    prev=slow;
+    slow=slow->next;
+    fast=fast->next->next;
+    if(fast==head)
+      break;
+  }
+  
+  prev->next=head;
+  struct Node* temp=slow;
+  while(temp->next!=head)
+  {
+    temp=temp->next;
+  }
+  temp->next=slow;
+  return slow;
+}

@@ -1,0 +1,26 @@
+static void printAllPaths(Node root) 
+  {
+  if(root==null)
+    return;
+int index=0; 
+ int arr[]=new int[100];
+  details(root,arr,index);
+  }
+static void print(int a[],int index)
+{
+  for(int i=0;i<=index;i++)
+    System.out.print(a[i]+" ");
+  System.out.println(index);
+  
+}
+static void details(Node root,int arr[],int index)
+{
+  if(root ==null)
+  return ;
+  arr[index]=root.data;
+  if(root.leftChild==null&&root.rightChild==null)
+    print(arr,index);
+  
+  details(root.leftChild,arr,index+1);
+    details(root.rightChild,arr,index+1);
+}

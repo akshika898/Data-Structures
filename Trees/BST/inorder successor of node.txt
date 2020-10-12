@@ -1,0 +1,51 @@
+(no. just greater than that node)
+
+    Node inorder;
+public Node inorderSuccessor(Node root,Node x)
+         {
+          if(root==null)
+          return null;
+          if(x.right!=null)
+          return min(x.right);
+          while(root!=null)
+          {
+              if(x.data<root.data)
+              {
+                 inorder=root;
+                  root=root.left;
+              }
+              else if(x.data>root.data)
+              root=root.right;
+              else
+              break;
+          }
+          return inorder;
+         }
+         static Node min(Node root)
+         {
+             
+             while(root.left!=null)
+             root=root.left;
+             return root;
+         }
+
+-----------------------
+optimised
+---------------------------
+
+public Node inorderSuccessor(Node root,Node k)
+{
+     if(root==null||k==null)
+        return null;
+     Node temp=null;
+     while(root!=null)
+     {
+      if(root.data<=k.data)
+       root=root.right;
+      else{
+         temp=root;
+         root=root.left;
+          }
+     }
+    return temp;
+}

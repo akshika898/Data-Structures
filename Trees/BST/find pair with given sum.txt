@@ -1,0 +1,16 @@
+static boolean findpairUtil(Node root, int sum, 
+                                HashSet<Integer> set)  
+    { 
+        if (root == null) 
+            return false; 
+  
+        if (set.contains(sum - root.data))  
+            return true; 
+       
+            set.add(root.data); 
+
+        if (findpairUtil(root.left, sum, set)) 
+            return true; 
+  
+        return findpairUtil(root.right, sum, set); 
+    } 

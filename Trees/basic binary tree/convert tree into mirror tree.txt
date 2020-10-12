@@ -1,0 +1,16 @@
+ Node mirror(Node node) 
+    { 
+        if (node == null) 
+            return node; 
+ 
+        Node temp=node.left; 
+        node.left=node.right;
+        node.right=temp;
+ 
+        mirror(node.left); 
+       mirror(node.right); 
+  
+        
+  
+        return node; 
+    } 

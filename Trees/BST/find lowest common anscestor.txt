@@ -1,0 +1,16 @@
+class Result {
+  static int lca(Node root, int k1, int k2) {
+    if(root==null ||( root.leftChild==null&&root.rightChild==null))
+      return -1;
+    while(root!=null)
+    {
+      if(root.data<k1&&root.data<k2)
+        root=root.rightChild;
+      else if(root.data>k1&&root.data>k2)
+        root=root.leftChild;
+      else 
+        break;
+    }
+return root.data;
+  }
+}

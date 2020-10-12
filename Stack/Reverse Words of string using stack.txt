@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+
+char arr[20];
+int top=-1;
+
+void push(char ch)
+{
+    if(top==20)
+    {
+        printf("Stack Overflow");
+        return;
+    }
+    top++;
+    arr[top]=ch;
+}
+
+char pop()
+{
+    if(top==-1)
+    {
+        printf("Stack is empty!");
+        return -1;
+    }
+    return arr[top--];
+}
+
+int peek()
+{
+    return arr[top];
+}
+
+void print()
+{
+    while(top!=-1)
+    {
+        printf("%c",pop());
+    }
+}
+
+int main()
+{
+    char str[50];
+    printf("Enter the string to reverse :- ");
+    gets(str);
+    
+    int len=strlen(str);
+    str[len]=' ';
+    str[len+1]='\0';
+    
+    char ch;
+    for(int i=0;str[i]!='\0';i++)
+    {
+        ch=str[i];
+        if(ch==' ')
+        {
+            print();
+            printf("%c",ch);
+        }
+        else{
+            push(ch);
+        }
+    }
+    return 0;
+}

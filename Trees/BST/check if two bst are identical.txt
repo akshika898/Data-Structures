@@ -1,0 +1,2 @@
+calculate inordr of both and sstore them in list
+return list1.equals(list2)

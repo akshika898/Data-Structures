@@ -1,0 +1,71 @@
+/* struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+Above structure is used to define the linked list, You have to complete the below functions only */
+
+struct Node * shiftSmallLarge(struct Node *org)
+{
+  if(org==NULL)
+  {
+    return org;
+  }
+  struct Node* start1=org;
+  struct Node* start=start1;
+  struct Node* loc=NULL;
+  int min=start1->data,max=start1->data;
+  int x=0,y=0,c=0;  
+  
+  while(start1)
+  {
+    if(start1->data>max)
+    {
+      max=start1->data;
+      y=c;
+    }
+    if(start1->data<min)
+    {
+      min=start1->data;
+      x=c;
+    }
+    c++;
+    start1=start1->next;
+  }
+  
+  //printf("Min is %d at %d\nMax is %d at %d\n",min,x,max,y);
+  
+  if(x!=0){
+  start=org;
+  while(x>1)
+  {
+    x--;
+    start=start->next;
+  }
+  loc=start->next;
+  start->next=start->next->next;
+  loc->next=org;
+  org=loc;
+  }
+  
+  if(y!=0){
+  start=org;
+  while(y>1)
+  {
+   	y--;
+    start=start->next;
+  }
+  loc=start->next;
+  start->next=start->next->next;
+  
+  while(start->next)
+  {
+    start=start->next;
+  }
+  start->next=loc;
+  loc->next=NULL;  
+  }
+  
+  return org;
+}

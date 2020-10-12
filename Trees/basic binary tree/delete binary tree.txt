@@ -1,0 +1,22 @@
+ void deleteTree(Node node)  
+    { 
+        // In Java automatic garbage collection 
+        // happens, so we can simply make root 
+        // null to delete the tree 
+        root = null; 
+    } 
+
+
+or(if u want to remove 1 by 1 then
+ traverse like in post order)
+
+
+ void deleteTree(Node node)  
+    { 
+        if(node==null)
+return;
+deleteTree(node.left);
+deleteTree(node.right);
+node=null;
+return;
+    } 

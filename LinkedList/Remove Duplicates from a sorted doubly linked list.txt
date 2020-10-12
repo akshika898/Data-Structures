@@ -1,0 +1,78 @@
+/* struct Node {
+    int data;
+    struct Node *next;
+  	struct Node *prev;	};
+Above structure is used to define the linked list, You have to complete the below functions only */
+
+struct Node* removeDupsDLL(struct Node* head)
+{
+  if(!head)
+  {
+    return head;
+  }
+  struct Node* start1=head;
+  struct Node* start2=head;
+  while(start1)
+  {
+    start2=start1;
+    start2=start2->next;
+    while(start2)
+    {
+      if(start1->data==start2->data)
+      {
+        if(start2->next!=NULL) 
+            start2->next->prev=start2->prev; 
+        if (start2->prev != NULL)  
+            start2->prev->next=start2->next;
+      }
+      start2=start2->next;
+    }
+    start1=start1->next;
+  }
+  
+  return head;
+}
+
+
+/*-----------------2ND APPROACH------------------*/
+
+/* struct Node {
+    int data;
+    struct Node *next;
+  	struct Node *prev;	};
+Above structure is used to define the linked list, You have to complete the below functions only 
+
+struct Node* removeDupsDLL(struct Node* head)
+{
+  if(!head)
+  {
+    return head;
+  }
+  struct Node* start1=head;
+  struct Node* start2=head;
+  
+  while(start1)
+  {
+    start2=start1;
+    start2=start2->next;
+    while(start2)
+    {
+      if(start1->data==start2->data)
+      {
+        start2->data=-1;
+      }
+      start2=start2->next;
+    }
+    start1=start1->next;
+  }
+  
+  start1=head;
+  while(start1)
+  {
+    if(start1->data!=-1)
+    printf("%d ",start1->data);
+    start1=start1->next;
+  }
+  return NULL;
+}
+*/

@@ -1,0 +1,51 @@
+------------------------
+(iterative)
+-----------------------------
+
+  static void printOdd(Node root) { 
+  Queue<Node> q=new LinkedList<Node>();
+    boolean flag=true;
+  if(root==null)
+    return;
+  q.add(root);
+  while(!q.isEmpty())
+  {
+    int c=q.size();
+    while(c>0)
+    {
+      Node temp=q.remove();
+      if(flag==true)
+      System.out.print(temp.data+" ");
+      if(temp.leftChild!=null)
+        q.add(temp.leftChild);
+      if(temp.rightChild!=null)
+        q.add(temp.rightChild);
+      c--;
+    }
+    flag=!flag;
+  }
+}
+
+
+---------------------
+recursive
+--------------------------
+
+
+  static void printOdd(Node root) { 
+if(root==null)
+  return;
+    print(root,true);
+}
+  static void print(Node root,boolean flag)
+  {
+    if(root==null)
+      return;
+    if(flag)
+      System.out.print(root.data+" ");
+    print(root.leftChild,!flag);
+    print(root.rightChild,!flag);
+  }
+
+
+

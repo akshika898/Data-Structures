@@ -1,0 +1,26 @@
+static Node deleteNode(Node root, int d)
+{
+	if(root==null)
+	    return null;
+	if(d<root.data)
+	    root.left=deleteNode(root.left,d);
+	else if(d>root.data)
+                   root.right=deleteNode(root.right,d);
+	else
+	{
+                    if(root.right==null)
+                       return root.left;
+                    else if(root.left==null)
+	        return root.right;
+	     root.data=min(root.right);
+	     root.right=deleteNode(root.right,root.data);
+		    
+	}
+	return root;
+	}
+static int min(Node root)
+{
+     while(root.left!=null)
+          root=root.left;
+      return root.data;
+}

@@ -1,0 +1,47 @@
+#include <stdio.h>
+#define SIZE 10
+
+int arr[10];
+int front=-1,rear=-1;
+
+// Method to add an item to the queue.
+void enqueue(int item)
+{
+  if(rear==SIZE)
+  {
+    return ;
+  }
+  if(front==-1 && rear==-1)
+  {
+    front++;
+    rear++;
+  }
+  else
+    rear++;
+  array[rear]=item;
+}
+
+// Method to remove an item from queue.
+int dequeue()
+{
+  if(front>rear)
+  {
+    return -1;
+  }
+  return array[front++];
+}
+
+int peek()
+{
+    return array[front];
+}
+
+int main()
+{
+    enqueue(10);
+    enqueue(20);
+    printf("%d ",dequeue());
+    printf("%d ",dequeue());
+
+    return 0;
+}

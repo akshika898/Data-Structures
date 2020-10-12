@@ -1,0 +1,45 @@
+// more time
+void moveElements(int arr[], int n)
+{
+  int c=0,temp;
+  for(int i=0;i<n-c;i++)
+  {
+    if(arr[i]<0)
+    {
+      temp=arr[i];
+      for(int j=i;j<n-1;j++)
+      {
+        arr[j]=arr[j+1];
+      }
+      arr[n-1]=temp;
+      c++;
+      i--;
+    }
+  }
+}
+
+//more space
+
+ static void segregateElements(int arr[], int n) 
+    { 
+        int temp[] = new int[n]; 
+  
+        //store +ve element 
+        int j = 0; 
+        for (int i = 0; i < n; i++) 
+            if (arr[i] >= 0) 
+                temp[j++] = arr[i]; 
+  
+        // If array contains all positive or negative. 
+        if (j == n || j == 0) 
+            return; 
+  
+        // Store -ve element in temp array 
+        for (int i = 0; i < n; i++) 
+            if (arr[i] < 0) 
+                temp[j++] = arr[i]; 
+  
+        // Copy contents of temp[] to arr[] 
+        for (int i = 0; i < n; i++) 
+            arr[i] = temp[i]; 
+    }

@@ -1,0 +1,56 @@
+---------------------------
+inorder and then find
+----------------------------
+ static List<Node> l=new ArrayList<Node>();
+  static int floor(Node root, int key) {
+    inorder(root);
+    int i,res=-1;
+    for(i=0;i<l.size();i++)
+    {
+      if(l.get(i).data<=key)
+        res=l.get(i).data;
+      else 
+        break;
+    }
+  return res;
+  }
+
+  static int ceil(Node root, int key) {
+ inorder(root);
+    int i=0,res=-1;
+    for(i=l.size()-1;i>=0;i--)
+    {
+      if(l.get(i).data>=key)
+        res=l.get(i).data;
+      else
+        break; 
+    }
+    return res;
+  }
+  static void inorder(Node root){
+    if(root==null)
+      return ;
+    inorder(root.leftChild);
+    l.add(root);
+    inorder(root.rightChild);
+  }
+}
+------------------------
+without extra space
+-------------------------
+
+int Ceil(Node node, int input)  
+    {  
+        if (node == null)  
+            return -1;  
+       
+        if (node.data == input) 
+            return node.data;  
+      
+        if (node.data < input) {  
+            return Ceil(node.right, input);  
+        }  
+    
+        int ceil = Ceil(node.left, input);    
+        return (ceil >= input) ? ceil : node.data;  
+    } 

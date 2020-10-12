@@ -1,0 +1,46 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ * 
+ * typedef struct ListNode listnode;
+ * 
+ * listnode* listnode_new(int val) {
+ *     listnode* node = (listnode *) malloc(sizeof(listnode));
+ *     node->val = val;
+ *     node->next = NULL;
+ *     return node;
+ * }
+ */
+/**
+ * @input A : Head pointer of linked list 
+ * 
+ * @Output head pointer of list.
+ */
+listnode* deleteDuplicates(listnode* A) {
+    listnode* start=A;
+    listnode* x;
+    int data;
+    while(start->next)
+    {
+        data=start->val;
+        x=start->next;
+        while(x->val==data && x->next!=NULL){
+            x=x->next;
+        }
+        if(x->val==start->val){
+            start->next=NULL;
+            return A;
+        }
+        else if(x->next==NULL){
+            start->next=x;
+            return A;
+        }
+        start->next=x;
+        start=start->next;
+    }
+    
+    return A;
+}

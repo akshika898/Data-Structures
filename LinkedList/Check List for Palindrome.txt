@@ -1,0 +1,52 @@
+/* struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+Above structure is used to define the linked list, You have to complete the below functions only */
+struct Node* newElement(int data)
+{
+  struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+  newNode->data=data;
+  newNode->next=NULL;
+  return newNode;
+}
+
+int  checkPalindrome(struct Node* head) 
+{
+  if(head==NULL)
+  {
+    return 0;
+  }
+  
+  struct Node* start1=head;  
+  struct Node* head2=NULL;
+  int flag=0;
+  while(start1!=NULL)
+  {
+    struct Node* newNode=newElement(start1->data);
+    newNode->next=head2;
+    head2=newNode;    
+    start1=start1->next;
+  }
+  
+  struct Node* start2=head2;
+  start1=head;
+  while(start2!=NULL&&start1!=NULL)
+  {
+    if(start1->data!=start2->data){
+      flag=1;
+      break;
+    }
+    start1=start1->next;
+    start2=start2->next;
+  }
+  
+  if(flag==1)
+  {
+    return 0;
+  }
+  else
+  return 1;
+}

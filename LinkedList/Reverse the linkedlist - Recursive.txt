@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+struct Node* head=NULL;
+
+/*-------------- New Element --------------*/
+
+struct Node* newElement(int data)
+{
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+    new_node->data=data;
+    new_node->next=NULL;
+    return new_node;
+}
+
+/*-------------- Print --------------*/
+
+void print()
+{
+    struct Node* ptr=head;
+    while(ptr)
+    {
+        printf("%d ",ptr->data);
+        ptr=ptr->next;
+    }
+}
+
+/*-------------- Insert at Start --------------*/
+
+void insertAtStart(int data)
+{
+    struct Node* new_node=newElement(data);
+    new_node->next=head;
+    head=new_node;
+}
+
+/*-------------- Reverse --------------*/
+
+void reverseRecursive(struct Node* ptr)
+{
+    if(ptr==NULL)
+    {
+        return ;
+    }
+    reverseRecursive(ptr->next);
+    printf("%d ",ptr->data);
+}
+
+int main()
+{
+    insertAtStart(10);
+    insertAtStart(20);
+    insertAtStart(30);
+    insertAtStart(40);
+    insertAtStart(50);
+    insertAtStart(60);
+    
+    reverseRecursive(head);
+    
+    return 0;
+}

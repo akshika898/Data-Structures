@@ -1,0 +1,71 @@
+/*
+int Stack[SIZE], top=-1;
+int isFull();
+int isEmpty();
+int push(int item);
+int pop();
+
+Above variables are used for Stack, SIZE and top and all are global variables. Also above push and pop functions are provided. */
+
+int peek()
+{
+  return Stack[top];
+}
+
+int precedence(char ch)
+{
+  if(ch=='^'||ch=='$')
+    return 3;
+  else if(ch=='*'||ch=='/')
+    return 2;
+  else if(ch=='+'||ch=='-')
+    return 1;
+  else
+    return -1;
+}
+
+int isOperend(int ch)
+{
+  if(isdigit(ch) || (ch>=65 && ch<=90)||(ch>=97 && ch<=122))
+    return 1;
+  else
+    return 0;
+}
+
+int infixToPostfix(char exp[], char output[])
+{
+  int p=0;
+  char ch;
+  for(int i=0;exp[i]!='\0';i++)
+  {
+    ch=exp[i];
+    if(isOperend(ch))
+    {
+      output[p++]=ch;
+    }
+    else
+    {
+      if(ch=='('){
+        push(ch);
+      }
+      else if(ch==')')
+      {
+        while(!isEmpty() && peek()!='(')
+          output[p++]=pop();
+        pop();
+      }
+      else
+      {
+        while(!isEmpty() && (precedence(peek())>=precedence(ch)))
+          output[p++]=pop();
+        push(ch);
+      }      
+    }
+  }
+  while(!isEmpty())
+  {
+    output[p++]=pop();
+  }
+  output[p]='\0';
+  return 1;
+}

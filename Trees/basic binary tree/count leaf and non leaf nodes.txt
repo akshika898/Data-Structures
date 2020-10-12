@@ -1,0 +1,17 @@
+  static int count_leaf(Node root)
+  {
+      if(root==null)
+      return 0;
+      else if(root.left==null&&root.right==null)
+      return 1;
+      return count_leaf(root.left)+count_leaf(root.right);
+      
+  }
+
+ static int countNonLeafs(Node root) 
+  {
+    if(root==null || (root.leftChild==null&&root.rightChild==null))
+      return 0;
+    else 
+    return 1+countNonLeafs(root.leftChild)+countNonLeafs(root.rightChild);
+  }

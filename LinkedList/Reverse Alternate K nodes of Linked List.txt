@@ -1,0 +1,39 @@
+/* struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+Above structure is used to define the linked list, You have to complete the below functions only */
+
+struct Node* revAltKNodes (struct Node* head, int k) 
+{
+  struct Node* current = head; 
+  struct Node* n; 
+  struct Node* prev = NULL; 
+  int count = 0;    
+
+  while (current != NULL && count < k) 
+  { 
+    n  = current->next; 
+    current->next = prev; 
+    prev = current; 
+    current = n; 
+    count++; 
+  } 
+
+  if(head != NULL) 
+    head->next = current;    
+
+  count = 0; 
+  while(count < k-1 && current != NULL ) 
+  { 
+    current = current->next; 
+    count++; 
+  } 
+
+  if(current !=  NULL) 
+    current->next = revAltKNodes(current->next, k);  
+
+  return prev; 
+}

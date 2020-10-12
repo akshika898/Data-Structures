@@ -1,0 +1,18 @@
+class Solution
+{
+    int get(Node node,int data,int level)
+ {
+     if(node==null)
+     return 0;
+     int l;
+     if(node.data==data)
+     return level;
+     
+    l=get(node.left,data,level+1);
+    if(l!=0)
+    return l;
+    l=get(node.right,data,level+1);
+    return l;
+     
+ }
+}

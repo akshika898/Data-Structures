@@ -1,0 +1,62 @@
+6
+5
+4
+4
+2
+2
+8
+Sample Output 1
+
+6
+4
+2
+1
+Explanation 1
+
+|lengths| = 6, lengths = {5, 4, 4, 2, 2, 8}
+Cut Operation 1: The smallest length in lengths is 2, so the cut length for this cut operation is 2. 
+                 After cutting (reducing) each stick in lengths by 2, lengths1 = {3, 2, 2, 0, 0, 6} and we print 6 (the number of sticks cut during the cut operation) on a new line.
+Cut Operation 2: The smallest length in lengths1 = {3, 2, 2, 0, 0, 6} is 2, so the cut length for this cut operation is 2. 
+                 After cutting (reducing) each stick in lengths1 by 2, lengths2 = {1, 0, 0, 0, 0, 4} and we print 4(the number of sticks cut during the cut operation) on a new line.
+Cut Operation 3: The smallest length in lengths2 = {1, 0, 0, 0, 0, 4} is 1, so the cut length for this cut operation is 1. 
+                 After cutting (reducing) each stick in lengths2 by 1, lengths3 = {0, 0, 0, 0, 0, 3} and we print 2(the number of sticks cut during the cut operation) on a new line.
+Cut Operation 4: The smallest length in lengths3 = {0, 0, 0, 0, 0, 3} is 3, so the cut length for this cut operation is 3. 
+                 After cutting (reducing) each stick in lengths3 by 3, lengths4 = {0, 0, 0, 0, 0, 0} and we print 1(the number of sticks cut during the cut operation) on a new line.
+At this point, there are no more sticks to be cut and we cease performing cut operations.
+
+
+
+
+
+class Result {
+  static ArrayList<Integer> cutSticks(ArrayList<Integer> arr) {
+    ArrayList<Integer> l=new ArrayList<>();
+    int zeroes=0,c=0,min=Integer.MAX_VALUE;
+    int a[]=new int[arr.size()];
+    for(int i=0;i<arr.size();i++)
+      a[i]=arr.get(i);
+    while(zeroes!=a.length){
+      for(int i=0;i<a.length;i++)
+      {
+        if(a[i]<min &&a[i]!=0)
+          min=a[i];
+      }
+      
+      for(int i=0;i<a.length;i++)
+      {
+        if(a[i]!=0)
+        {
+          a[i]=a[i]-min;
+          c++;
+        }
+      }
+      l.add(c);
+      for(int i=0;i<a.length;i++)
+      {
+        if(a[i]==0)
+          zeroes++;
+      }
+    }
+return l;
+  }
+}

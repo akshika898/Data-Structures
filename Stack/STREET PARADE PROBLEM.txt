@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+typedef struct node{
+    int  data;
+    struct node* next;
+}node ;
+
+void push(int val, node** top)
+{
+    node* nn= (node*)malloc(sizeof(node));
+    nn->data=val;
+    nn->next=*top;
+    *top=nn;
+}
+
+void pop(node** top)
+{
+    struct node* temp=*top;
+    *top=temp->next;
+    free(temp);
+    temp = NULL;
+
+}
+int peek(node* top)
+{
+return top->data;
+}
+
+bool empty(node* top)
+{
+    if(top == NULL)
+    return 1;
+    return 0;
+}
+int a[2000];
+node* s =NULL;
+
+int main()
+{
+  int n;
+  while(1)
+  {
+    scanf("%d",&n);
+    if(n==0)
+      break;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+      scanf("%d",&arr[i]);
+    }
+    node* stack=NULL;
+    int req=1,bol=1;
+    for(int i=0;i<n;i++){
+      while(!empty(stack) && peek(stack) == req){
+        req++;
+        pop(&stack);
+      }
+      if(arr[i]==req){
+        req++;
+      }
+      else if(!empty(stack) && peek(stack)<arr[i])
+      {
+        bol=0;
+        break;
+      }
+      else{
+        push(arr[i],&stack);
+      }
+    }
+    if(bol==1){
+      printf("yes\n");
+    }
+    else
+      printf("no\n");
+  }    
+    return 0;
+}

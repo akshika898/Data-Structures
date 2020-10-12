@@ -1,0 +1,16 @@
+static int count(Node root)
+  {
+      if(root==null)
+      return 0;
+      return 1+count(root.left)+count(root.right);
+  }
+
+or
+ static void count(Node root)
+  {
+      if(root==null)
+      return ;
+      c++;
+    count(root.left);
+    count(root.right);
+  }

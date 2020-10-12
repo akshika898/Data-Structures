@@ -1,0 +1,18 @@
+class Result {
+  static Node buildSearchTree(int t[], int n) {
+    Node root = null;
+    for(int i=0;i<n;i++)
+      root=levelorder(root,t[i]); 
+	return(root);
+  }
+  static Node levelorder(Node root,int d)
+  {
+    if(root==null)
+      return new Node(d);
+    if(d<root.data)
+    root.leftChild=levelorder(root.leftChild,d);
+    else
+      root.rightChild=levelorder(root.rightChild,d);
+    return root;
+  }
+}

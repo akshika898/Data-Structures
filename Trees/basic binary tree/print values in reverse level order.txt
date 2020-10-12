@@ -1,0 +1,53 @@
+static void printLevelWise(Node root)
+{
+  int h=height(root);
+  for(int i=h;i>=0;i--)
+  {
+    print(root,i+1);
+    System.out.println(" ");
+  }
+
+}
+static void print(Node root,int level)
+{
+  if(root==null)
+    return;
+  if(level==1)
+  {
+    System.out.print(root.data+" ");
+    return ;
+  }
+  print(root.leftChild,level-1);
+  print(root.rightChild,level-1);
+}
+static int height(Node root)
+{
+  if(root==null)
+    return -1;
+  return 1+Math.max(height(root.leftChild),height(root.rightChild));
+}
+
+
+---------------------------------------------
+or(without recursion-better way)
+------------------------------------------------
+
+  static void printLevelWise(Node root)
+{
+  if(root==null)
+    return;
+Queue<Node> q=new Queue<Node>();
+Stack<Node> s=new Stack<Node<>();
+  q.add(root);
+  while(q.size()>0)
+  {
+    Node top=q.remove();
+    if(top.right!=null)
+      q.add(top.right);
+    if(top.left!=null)
+      q.add(top.left);
+   s.push(top);
+  }
+while(s.size()>0)
+ System.out.print(s.pop().data+" ");
+}

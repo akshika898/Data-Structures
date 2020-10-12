@@ -1,0 +1,44 @@
+class Tree
+{
+	int getLevelDiff(Node root)
+	{
+	    if(root==null)
+	    return 0;
+	    int odd=0,even=0,level=0;
+	    Queue<Node> q=new LinkedList<Node>();
+	    q.add(root);
+	    while(!q.isEmpty())
+	    {
+	        int s=q.size();
+	        level++;
+	        while(s>0)
+	        {
+	            Node temp=q.remove();
+	            if(level%2==0)
+	            even+=temp.data;
+	            else
+	            odd+=temp.data;
+	            if(temp.left!=null)
+	            q.add(temp.left);
+	            if(temp.right!=null)
+	            q.add(temp.right);
+	            s--;
+	            
+	            
+	        }
+	    }
+	    return (odd-even);
+	    
+	}
+}
+---------------------
+recursion
+------------------------
+
+    int Diff(Node node)  
+    {  
+        if (node == null) 
+            return 0; 
+  
+        return node.data -Diff(node.left) - Diff(node.right); 
+    } 
