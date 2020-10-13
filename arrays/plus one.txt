@@ -1,0 +1,22 @@
+//[4,3,2,1]=4322
+[5,3,6,9]=5370
+
+class Solution {
+    public int[] plusOne(int[] a) {
+        int len=a.length;
+        for(int i=len-1;i>=0;i--)
+        {
+            if(a[i]<9)
+            {
+                a[i]+=1;
+                return a;
+            }
+            a[i]=0;
+        }
+        int new_array[]=new int[len+1];
+        new_array[0]=1;
+        return new_array;
+        
+        
+    }
+}

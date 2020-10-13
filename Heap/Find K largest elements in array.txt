@@ -1,4 +1,4 @@
-using sorting (outer loop of buublle sort k times)
+using sorting (outer loop of bubblle sort k times)
 ------------------------------------------
 Arrays.sort()
 -----------------------------------------------
