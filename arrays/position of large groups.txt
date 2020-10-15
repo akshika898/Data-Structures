@@ -1,0 +1,33 @@
+a string s = "abbxxxxzyy" has groups "a", "bb", "xxxx", "z", and "yy".
+ "xxxx" has the interval [3,6].
+A group is considered large if it has 3 or more characters.
+Return the intervals of every large group sorted in 
+increasing order by start index.
+
+Input: s = "abbxxxxzzy"
+Output: [[3,6]]
+Explanation: "xxxx" is the only large group with start index 3 and end index 6.
+Example 2:
+
+Input: s = "abc"
+Output: []
+Explanation: We have groups "a", "b", and "c", none of which are large groups.
+
+class Solution {
+    public List<List<Integer>> Positions(String S) {
+        List<List<Integer>> ans = new ArrayList();
+        int pos=0;
+        for(int i=0;i<S.length();i++)
+        {
+            if(i==S.length()-1 || S.charAt(i)!=S.charAt(i+1))
+            {
+                if(i-pos+1>=3)
+                    ans.add(Arrays.asList(new Integer[]{pos,i}));
+                pos=i+1;
+                    
+            }
+                    
+        }
+        return ans;
+    }
+}
