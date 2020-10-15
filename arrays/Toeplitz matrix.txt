@@ -1,0 +1,23 @@
+A matrix is Toeplitz if every diagonal from top-left to 
+bottom-right has the same element.
+
+matrix = [                            Output: True
+  [1,2,3,4],
+  [5,1,2,3],
+  [9,5,1,2]
+]                   
+Explanation:
+diagonals are:
+"[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".In each 
+diagonal all elements are the same, so the answer is True.
+
+
+class Solution {
+    public boolean isToeplitzMatrix(int[][] m) {
+        for (int r = 0; r < m.length; r++)
+            for (int c = 0; c < m[0].length; c++)
+                if (r > 0 && c > 0 && m[r-1][c-1] != m[r][c])
+                    return false;
+        return true;
+    }
+}
