@@ -1,35 +1,24 @@
-/* struct Node
-{
-    int data;
-    struct Node* next;
-};
-
-Above structure is used to define the linked list, You have to complete the below functions only */
-
-int  loopInList(struct Node* head) 
-{
-  if(head==NULL){
+class Result {
+  static int loopInList(Node head) {
+    if (head == null || head.next == null) {
+        return 0;
+    }
+    int c=1;
+   Node slow = head,fast = head;
+    while (slow != null && fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+      if(slow==fast)
+      {
+        while(slow.next!=fast)
+        {
+          c++;
+          slow=slow.next;
+        }
+        return c;
+      }
+    }
+    
     return 0;
   }
-  int count=1;
-  struct Node* slow=head;
-  struct Node* fast=head;
-  
-  while(slow && fast && fast->next)
-  {
-    slow=slow->next;
-    fast=fast->next->next;
-    if(slow==fast)
-    {
-      count=1;
-      while(slow->next=fast)
-      {
-        count++;
-        slow=slow->next;
-      }
-      return count;
-    }
-  }
-  
-  return 0;
 }
