@@ -1,0 +1,13 @@
+static Node copyList(Node org)
+{
+Node temp=org;
+Node head=new Node(0);
+  Node last=head;
+  while(temp!=null)
+{
+    last.next=new Node(temp.data);
+    temp=temp.next;
+    last=last.next;
+  }
+  return head.next;
+}
