@@ -1,15 +1,10 @@
-/* struct Node
-{
-    int data;
-    struct Node* next;
-}; Above structure is used to define the linked list, You have to complete the below functions only */
 
-void deleteNodeK(struct Node* n1) 
-{
-  if(n1==NULL||n1->next==NULL)
-  {
-    return;
+class Result {
+  static void deleteNodeK(Node n1) {
+    if(n1==null ||n1.next==null)
+      return;
+    n1.data=n1.next.data;
+    n1.next=n1.next.next;
+
   }
-  n1->data=n1->next->data;
-  n1->next=n1->next->next;
 }

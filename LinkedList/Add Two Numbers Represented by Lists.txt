@@ -1,63 +1,32 @@
-/* struct Node
-{
-    int data;
-    struct Node* next;
-};
+/* class Node {
+  int data;
+  Node next;
+  Node(){}
+  Node(int d) {
+    data=d;
+  }
+} */
 
-Above structure is used to define the linked list, You have to complete the below functions only */
-
-struct Node* addListNumbers(struct Node* head1, struct Node* head2) 
-{
-  struct Node* start1=head1;
-  struct Node* start2=head2;
-  
-  struct Node* prev=NULL;
-  struct Node* n=NULL;
-  struct Node* current=start1;
-  
-  while(current)
-  {
-    n=current->next;
-    current->next=prev;
-    prev=current;
-    current=n;
+class Result {
+  static Node addListNumbers(Node head1, Node head2) {
+    Node list_node=new Node(0);
+    Node a=head1,b=head2,curr=list_node;
+    int carry=0;
+    while(a!=null||b!=null)
+    {
+      int a_val=(a!=null)?a.data:0;
+      int b_val=(b!=null)?b.data:0;
+    int sum=a_val+b_val+carry;
+    carry=sum/10;
+    curr.next=new Node(sum%10);
+    curr=curr.next;
+    if(a!=null)
+      a=a.next;
+    if(b!=null)
+      b=b.next;
   }
-  start1=prev;
-  
-  int num1=0;  
-  while(start1)
-  {
-    num1=num1*10+start1->data;
-    start1=start1->next;
-  }
-  
-  prev=NULL;
-  n=NULL;
-  current=start2;
-  
-  while(current)
-  {
-    n=current->next;
-    current->next=prev;
-    prev=current;
-    current=n;
-  }
-  start2=prev;
-  
-  int num2=0;  
-  while(start2)
-  {
-    num2=num2*10+start2->data;
-    start2=start2->next;
-  }
-  
-  int sum=num1+num2,rem;
-  while(sum>0)
-  {
-    rem=sum%10;
-    printf("%d ",rem);
-    sum=sum/10;
-  }
-  
-  return NULL;
+  if(carry>0)
+    curr.next=new Node(carry);
+  return list_node.next;
+}
 }

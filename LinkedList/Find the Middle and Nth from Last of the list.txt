@@ -1,54 +1,30 @@
-/* struct Node
+static int findMiddle(Node head) 
 {
-    int data;
-    struct Node* next;
-};
-
-Above structure is used to define the linked list, You have to complete the below functions only */
-
-int findMiddle(struct Node* head) 
-{
-  if(head==NULL)
-  {
+  if(head==null)
     return -1;
+Node slow=head,fast=head;
+  while(fast!=null &&fast.next!=null){
+    fast=fast.next.next;
+    slow=slow.next;
   }
-  struct Node* slow=head;
-  struct Node* fast=head;
-  while(slow && fast && fast->next)
-  {
-    slow=slow->next;
-    fast=fast->next->next;
-  }
-  return slow->data;
+  return slow.data;
 }
 
-int findNLast(struct Node* head, int n)
+static int findNLast(Node head, int n)
 {
-  if(head==NULL)
-  {
+int c=1;
+  if(head==null)
     return -1;
-  }
-  struct Node* start=head;
-  int c=0;
-  while(start->next)
-  {
+  Node temp=head;
+  while(temp.next!=null){
+   temp=temp.next;
     c++;
-    start=start->next;
   }
-  c++;
   if(n>c)
-  {
-    return start->data;
-  }
+    return temp.data;
   int x=c-n;
-  
-  start=head;
-  while(x>1)
-  {
-    x--;
-    start=start->next;
+  while(x-->0){
+    head=head.next;
   }
-  return start->next->data;
+  return head.data;
 }
-
-
