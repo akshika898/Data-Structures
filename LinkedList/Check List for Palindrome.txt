@@ -1,52 +1,35 @@
-/* struct Node
-{
-    int data;
-    struct Node* next;
-};
-
-Above structure is used to define the linked list, You have to complete the below functions only */
-struct Node* newElement(int data)
-{
-  struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
-  newNode->data=data;
-  newNode->next=NULL;
-  return newNode;
-}
-
-int  checkPalindrome(struct Node* head) 
-{
-  if(head==NULL)
-  {
-    return 0;
-  }
-  
-  struct Node* start1=head;  
-  struct Node* head2=NULL;
-  int flag=0;
-  while(start1!=NULL)
-  {
-    struct Node* newNode=newElement(start1->data);
-    newNode->next=head2;
-    head2=newNode;    
-    start1=start1->next;
-  }
-  
-  struct Node* start2=head2;
-  start1=head;
-  while(start2!=NULL&&start1!=NULL)
-  {
-    if(start1->data!=start2->data){
-      flag=1;
-      break;
+class Result {
+  static int checkPalindrome(Node head) {
+    if(head==null)
+      return 0;
+    if(head.next==null)return 1;
+    Node slow=head,fast=head;
+    while(fast!=null && fast.next!=null)
+    {
+      fast=fast.next.next;
+       slow=slow.next;
     }
-    start1=start1->next;
-    start2=start2->next;
+    slow=reverse(slow);
+    while(slow!=null)
+    {
+       if(head.data!=slow.data)
+        	return 0;
+       slow=slow.next;
+       head=head.next;       
+    }
+        return 1;
+
   }
-  
-  if(flag==1)
+  static Node reverse(Node slow)
   {
-    return 0;
+    Node prev=null,curr=slow,next=slow;
+    while(curr!=null)
+    {
+      next=curr.next;
+      curr.next=prev;
+      prev=curr;
+      curr=next;
+    }
+    return prev;
   }
-  else
-  return 1;
 }
