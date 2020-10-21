@@ -1,53 +1,24 @@
-/* struct Node
-{
-    int data;
-    struct Node* next;
-};
-
-Above structure is used to define the linked list, You have to complete the below functions only */
-
-struct Node* findIntersection(struct Node* head1, struct Node* head2) 
-{
-  if(!head1 || !head2){
-    return NULL;
+class Result {
+  static Node findIntersection(Node headA, Node headB) {
+Set<Integer> nodes = new HashSet<>();
+    Node org=new Node(0);
+        Node pb = headB,temp=org;
+        while (pb != null) {
+            nodes.add(pb.data);
+            pb = pb.next;
+        }
+        if (nodes.isEmpty()) {
+            return null;
+        }
+        Node pa = headA;
+        while (pa != null) {
+            if (nodes.contains(pa.data)) {
+                temp.next=pa;
+              temp=temp.next;
+            }
+            pa = pa.next;
+        }
+    temp.next=null;
+        return org.next;
   }
-  struct Node* start1=head1;
-  struct Node* start2=head2;
-  struct Node* head3=NULL;
-  struct Node* res=head3;
-  int flag=0;
-  
-  while(start1)
-  {
-    start2=head2;
-    flag=0;
-    while(start2)
-    {
-      if(start1->data==start2->data)
-      {
-        flag=1;
-        break;
-      }
-      start2=start2->next;
-    }
-    if(flag==1)
-    {
-      struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
-      newNode->data=start1->data;
-      newNode->next=NULL;
-      if(res==NULL)
-      {
-        head3=newNode;
-        res=head3;
-      }
-      else
-      {
-        res->next=newNode;
-        res=res->next;
-      }
-    }
-    start1=start1->next;
-  }
-  
-  return head3;
 }

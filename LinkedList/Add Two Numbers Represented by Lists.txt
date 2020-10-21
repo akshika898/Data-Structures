@@ -1,14 +1,5 @@
-/* class Node {
-  int data;
-  Node next;
-  Node(){}
-  Node(int d) {
-    data=d;
-  }
-} */
-
 class Result {
-  static Node addListNumbers(Node head1, Node head2) {
+  static Node addList(Node head1, Node head2) {
     Node list_node=new Node(0);
     Node a=head1,b=head2,curr=list_node;
     int carry=0;
