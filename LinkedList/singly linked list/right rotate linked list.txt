@@ -1,0 +1,23 @@
+    public Node rotate(Node head, int k) {
+        if(head==null)
+            return null;
+        Node temp=head;
+        int c=1;
+        while(temp.next!=null)
+        {
+            temp=temp.next;
+            c++;
+        }
+        k=k%c;
+        k=c-k;
+        temp.next=head;
+        temp=head;
+        while(k-->1)
+        {
+         temp=temp.next;   
+        }
+        head=temp.next;
+        temp.next=null;
+        return head;
+    }
+}

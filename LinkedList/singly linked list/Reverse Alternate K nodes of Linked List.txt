@@ -11,8 +11,8 @@ class Result {
         } 
      if (head != null) 
             head.next = curr;  
-        count = 0; 
-        while (count < k - 1 && curr != null) { 
+        count = 1; 
+        while (count < k && curr != null) { 
             curr = curr.next; 
             count++; 
         } 

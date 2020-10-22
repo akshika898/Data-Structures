@@ -1,0 +1,29 @@
+Input: head = [1,2,3,4,5], k = 3
+Output: [3,2,1,4,5]
+
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if(head==null) return null;
+        ListNode itr=head;
+        ListNode prev=null;
+        for(int i=0;i<k;i++){
+            if(itr==null) return head;
+            prev = itr;
+            itr = itr.next;
+        }
+        prev.next=null;
+        ListNode reverseHead = reverse(head);
+        ListNode next = reverseKGroup(itr,k);
+        head.next = next;
+        return reverseHead;
+    }
+    public ListNode reverse(ListNode head){
+        if(head==null) return null;
+        ListNode temp = head, prev=null;
+        while(temp!=null){
+            ListNode next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+        }
+        return prev;
+    }

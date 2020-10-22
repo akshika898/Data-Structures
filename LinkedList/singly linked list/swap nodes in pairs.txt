@@ -1,0 +1,24 @@
+    public Node swapPairs(Node head) {
+        if(head==null || head.next==null)
+            return head;
+       Node p=head,q=null,temp=null;
+      head=head.next;
+        while(true)
+        {
+            q=p.next;
+           temp=q.next;
+            q.next=p;
+            if(temp==null || temp.next==null)
+            {
+            p.next=temp;
+            break;
+            }
+            
+            p.next=temp.next;
+            p=temp;
+        }
+        return head;
+    }
+
+p   q   temp
+1    2     3       4    5

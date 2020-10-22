@@ -1,0 +1,25 @@
+static Node findUnion(Node head1,Node head2) 
+{  
+  int hash[15]={0};
+  Node start1=head1;
+  Node start2=head2;
+  
+  while(start1)
+  {
+    hash[start1.data]=1;
+    start1=start1.next;
+  }
+  while(start2)
+  {
+    hash[start2.data]=1;
+    start2=start2.next;
+  }
+  
+  for(int i=0;i<15;i++)
+  {
+    if(hash[i]==1)
+    {
+      System.out.print(i);
+    }
+  }
+}
