@@ -1,0 +1,22 @@
+1 2 3 6 4 5 6
+1 2 3 4 5 or
+1 2 2 1
+[]
+
+    public Node remove(Node head, int val) {
+        if(head==null)
+            return null;
+        while(head!=null &&head.val==val )
+            head=head.next;
+     Node temp=head,prev=null;
+
+        while(temp!=null){
+            if(temp.val==val)
+             prev.next=temp.next;   
+            else
+            prev=temp;
+            temp=temp.next;
+  }
+        return head;
+    }
+}
