@@ -1,0 +1,12 @@
+static int isCircular(LinkList head)
+{
+  if(head==null)
+    return 1;
+LinkList temp=head.next;
+  while(temp!=head &&temp!=null){
+    temp=temp.next;
+  }
+  if(temp==null)
+    return 0;
+  return 1;
+}

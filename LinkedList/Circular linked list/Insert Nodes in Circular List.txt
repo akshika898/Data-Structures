@@ -1,0 +1,33 @@
+static LinkList insertBeg(LinkList head, int data)
+{
+  LinkList node=new LinkList(data);
+  if(head==null)
+  {
+    head=node;
+    node.next=head;
+   return head;
+  }
+LinkList temp=head;
+  while(temp.next!=head )
+    temp=temp.next;
+  temp.next=node;
+  node.next=head ;
+  head=node;
+  return head;
+}
+static LinkList insertEnd(LinkList head, int data)
+{
+    LinkList node=new LinkList(data);
+ if(head==null)
+ {
+   head=node;
+   node.next=head;
+   return head;
+ }
+LinkList temp=head.next;
+  while(temp.next!=head)
+    temp=temp.next;
+  temp.next=node;
+  node.next=head;
+  return head;
+}

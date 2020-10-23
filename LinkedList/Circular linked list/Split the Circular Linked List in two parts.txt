@@ -1,0 +1,17 @@
+  static LinkList listCut(LinkList head) {
+    if(head==null)
+        return head;
+    LinkList slow=head,fast=head;
+    while(fast.next.next!=head&& fast.next!=head)
+    {
+      slow=slow.next;
+      fast=fast.next.next;
+    }
+    if(fast.next.next==head)
+      fast=fast.next;
+     fast.next=slow.next;
+    LinkList temp=slow.next;
+    slow.next=head;
+    slow=temp;  
+    return slow;
+  }

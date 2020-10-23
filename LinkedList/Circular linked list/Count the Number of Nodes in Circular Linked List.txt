@@ -1,0 +1,12 @@
+  static int countNodes(LinkList head) {
+if(head==null)
+  return 0;
+    int c=1;
+  LinkList temp=head.next;
+  while(temp!=head)
+  {
+    temp=temp.next;
+    c++;
+  }
+  return c;
+  }
