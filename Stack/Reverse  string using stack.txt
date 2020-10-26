@@ -1,0 +1,12 @@
+static String reverseString(CQStack s, String st)
+{
+String str="";
+  for(int i=0;i<st.length();i++)
+  { 
+    s.push(st.charAt(i));
+  }
+  while(!s.isEmpty()){
+    str+=(char)s.pop();
+  }
+  return str;
+}

@@ -1,41 +1,31 @@
-/*
-struct StackLL
+class LinkStack
 {
-  int data;
-  struct StackLL* next;
-};
-struct StackLL* main_Stack = NULL;	// The stack head to be used for operations.
-
-struct StackLL* newElement(int data);
-++++++ This function is given to you for inserting an element and it will return the address of new node. ++++++
-So complete the functions below using above constructs to implement the stack.
-*/
-int isEmpty()
-{
-  if(main_Stack==NULL)
-  {
-    return 1;
+  private LinkList top; 
+  public LinkStack()   {
+    top=null;
   }
-  else
-  {
-    return 0;
-  }
-}
 
-void push(int data)
-{
-  struct StackLL* new_node=newElement(data);
-  new_node->next=main_Stack;
-  main_Stack=new_node;
-}
-
-int pop()
-{
-  if(isEmpty())
+  public boolean isEmpty()
   {
-    return -1;
+    return top==null;
   }
-  int item=main_Stack->data;
-  main_Stack=main_Stack->next;
-  return item;
+
+  public void push(int dd)
+  {
+    LinkList l=new LinkList(dd);
+    l.next=top;
+    top=l;
+  }
+
+  public int pop()
+  {
+    if(isEmpty())
+      return -1;
+    else
+    {
+      LinkList temp=top;
+      top=top.next;
+      return temp.data;
+    }
+  }
 }

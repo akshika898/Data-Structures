@@ -1,0 +1,22 @@
+Stack<Integer> min=new Stack<Integer>();
+void push(int item)
+{
+if(isFull())
+  return;
+  stackArray[++top]=item;
+  if(min.empty() || item<min.peek())
+    min.push(item);
+}
+int pop()
+{
+if(isEmpty())
+  return -1;
+  int ans=stackArray[top--];
+  if(ans==min.peek())
+    min.pop();
+  return ans;
+}
+int getMin()
+{
+return min.peek();
+}

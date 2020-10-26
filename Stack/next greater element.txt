@@ -1,0 +1,35 @@
+import java.util.*;
+class Main
+{
+  public static void main(String[] args)
+  {
+    Scanner sc=new Scanner(System.in);
+    int tc=sc.nextInt();
+    while(tc-- >0){
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+        a[i]=sc.nextInt();
+      nextgreater(a,n);
+    }
+  }
+  static void nextgreater(int a[],int n){
+    int res[]=new int[n];
+    for(int i=0;i<n;i++)
+      res[i]=-1;
+    Stack<Integer> s=new Stack<Integer>();
+    for(int i=n-1;i>=0;i--){
+     if(!s.isEmpty() && s.peek()>a[i])
+        res[i]=s.peek();
+      else{
+        while(!s.isEmpty()&&s.peek()<a[i])
+          s.pop();
+        if(!s.isEmpty())
+        res[i]=s.peek();
+      }
+      s.push(a[i]);
+    }
+    for(int i=0;i<n;i++)
+      System.out.print(res[i]+" ");
+  }
+}
