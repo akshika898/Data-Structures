@@ -1,62 +1,31 @@
-char stack[20];
-int top=-1;
-
-int isEmpty()
+import java.util.*;
+class Result
 {
-  if(top==-1)
+   static int minReversal(String expr)
   {
-    return 1;
+       Stack<Character> s=new Stack<Character>();
+	if(expr.length()%2!=0)
+      return -1;
+     for(int i=0;i<expr.length();i++)
+     {
+       char c=expr.charAt(i);
+       if(c==']'&&!s.empty())
+       {
+         if(s.peek()=='[')
+           s.pop();
+         else
+          s.push(c);
+       }
+       else
+        s.push(c);
+     }
+     int len=s.size();
+     int n=0;
+     while(!s.empty()&&s.peek()=='[')
+     {
+       n++;
+       s.pop();
+     }
+     return (len/2+n%2);
   }
-  else
-    return 0;
-}
-
-void push(char ch)
-{
-  stack[++top]=ch;
-}
-
-char pop()
-{
-  if(isEmpty())
-  {
-    return '*';
-  }
-  return stack[top--];
-}
-
-char peek()
-{
-  if(isEmpty())
-  {
-    return '*';
-  }
-  return stack[top];
-}
-
-int minReversal(char* expr)
-{
-  int count=0;
-  char ch;
-  for(int i=0;expr[i]!='\0';i++)
-  {
-    ch=expr[i];
-    if(ch==']' && peek()=='[')
-    {
-      pop();
-    }
-    else if(ch=='[')
-    {
-      push(ch);
-    }
-    else if(ch==']' && peek()!='[')
-    {
-      push(ch);
-      count++;
-    }
-  }
-  if(top!=-1)
-  return count+(top/2)+(top%2);
-  else
-    return count;
 }
