@@ -1,71 +1,42 @@
-/*
-int Stack[SIZE], top=-1;
-int isFull();
-int isEmpty();
-int push(int item);
-int pop();
-
-Above variables are used for Stack, SIZE and top and all are global variables. Also above push and pop functions are provided. */
-
-int peek()
+static int prec(char ch)
 {
-  return Stack[top];
-}
-
-int precedence(char ch)
-{
-  if(ch=='^'||ch=='$')
-    return 3;
-  else if(ch=='*'||ch=='/')
+  if(ch=='+' || ch=='-')
+    return 1;
+  else if(ch=='*' || ch=='/')
     return 2;
-  else if(ch=='+'||ch=='-')
-    return 1;
-  else
-    return -1;
+  if(ch=='^')
+    return 3;
+  return -1;  
 }
-
-int isOperend(int ch)
+static int peek(CQStack s)
 {
-  if(isdigit(ch) || (ch>=65 && ch<=90)||(ch>=97 && ch<=122))
-    return 1;
-  else
-    return 0;
+  int top=s.top;
+  return s.stackArray[top];
 }
-
-int infixToPostfix(char exp[], char output[])
+static String infixToPostfix(CQStack s, String exp)
 {
-  int p=0;
-  char ch;
-  for(int i=0;exp[i]!='\0';i++)
+	String result="";
+  for(int i=0;i<exp.length();i++)
   {
-    ch=exp[i];
-    if(isOperend(ch))
+    char ch=exp.charAt(i);
+    if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z'))
+      result+=ch;
+    else if(ch=='(')
+      s.push('(');
+    else if(ch==')')
     {
-      output[p++]=ch;
+      while(!s.isEmpty() && peek(s)!='(')
+        result+=(char)s.pop();
+      s.pop();
     }
-    else
-    {
-      if(ch=='('){
-        push(ch);
-      }
-      else if(ch==')')
-      {
-        while(!isEmpty() && peek()!='(')
-          output[p++]=pop();
-        pop();
-      }
-      else
-      {
-        while(!isEmpty() && (precedence(peek())>=precedence(ch)))
-          output[p++]=pop();
-        push(ch);
-      }      
+    else{
+      while(!s.isEmpty()&& prec(ch)<=prec((char)peek(s)))
+        result+=(char)s.pop();
+      s.push(ch);
     }
   }
-  while(!isEmpty())
-  {
-    output[p++]=pop();
-  }
-  output[p]='\0';
-  return 1;
+    while(!s.isEmpty())
+      result+=(char)s.pop();
+    return result;
+  
 }
