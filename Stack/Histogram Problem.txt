@@ -1,49 +1,55 @@
-#include <stdio.h>
 
-int main()
-{
-    int n;
-    scanf("%d",&n);
-    int a[n];
-    int max[n];
-    
-    for(int i=0;i<n;i++)
-    {
-        scanf("%d",&a[i]);
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG {
+public static void main (String[] args) {
+Scanner sc = new Scanner(System.in);
+int t = sc.nextInt();
+while (t-- > 0) {
+       int n = sc.nextInt();
+       long[] arr = new long[n];       
+       for (int i = 0; i < n; i++) {
+         arr[i] = sc.nextLong();
+       }
+        maxArea(arr,n);
     }
-    
-    int count=0;
-    for(int k=0;k<n;k++)
-    {
-        count=1;
-        for(int i=k+1;i<n;i++)
-        {
-            if(a[i]<a[k])
-            break;
-            else
-            count++;
-        }
-        
-        for(int i=k-1;i>=0;i--)
-        {
-            if(a[i]<a[k]){
-                break;
-            }
-            else
-            count++;
-        }
-        
-        max[k]=count*a[k];
-    }
-    
-    int m=max[0];
-    for(int i=0;i<n;i++)
-    {
-        if(m<max[i]){
-            m=max[i];
-        }
-    }
-    printf("%d",m);
-    
-    return 0;
 }
+	
+public static void maxArea(long[] a,int n) {
+Stack<Integer> s = new Stack<>();
+long left[]=new long[n];
+left[0]=-1;
+s.push(0);
+for(int i=1;i<n;i++)
+  {
+  while(!s.empty()&&a[s.peek()]>=a[i])
+      s.pop();
+ if(!s.empty())
+    left[i]=s.peek();
+else
+   left[i]=-1;
+s.push(i);
+    }
+Stack<Integer> s1 = new Stack<>();
+long right[]=new long[n];
+for(int i=n-1;i>=0;i--)
+    {
+     while(!s.empty()&&a[s.peek()]>=a[i])
+         s.pop();
+    if(!s.empty())
+       right[i]=s.peek();
+    else
+       right[i]=n;
+    s.push(i);
+    }
+  for(int i=0;i<n;i++)
+     right[i]=(right[i]-left[i]-1)*a[i];
+ long max=right[0];
+ for(int i=1;i<n;i++)
+     {
+  if(right[i]>max)
+  max=right[i];
+     }
+stem.out.println(max);
+   }

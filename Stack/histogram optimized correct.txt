@@ -1,0 +1,32 @@
+static int getMaxArea(int a[], int n)  
+    {
+        Stack<Integer> s = new Stack<>(); 
+        int max_area = 0; 
+        int tp;  
+        int area;  
+        int i = 0; 
+        while (i < n) 
+        { 
+            if (s.empty() || a[s.peek()] <= a[i]) 
+                s.push(i++); 
+            else
+            { 
+                tp = s.peek(); 
+                s.pop(); 
+                area= a[tp] * (s.empty() ? i : i - s.peek() - 1); 
+  
+                if (max_area < area) 
+                    max_area = area; 
+            } 
+        } 
+        while (!s.empty()) 
+        { 
+            tp =s.pop(); 
+            area= a[tp] * (s.empty() ? i : i - s.peek() - 1); 
+       
+            if (max_area < area) 
+                max_area = area; 
+        } 
+        return max_area; 
+  
+    } 

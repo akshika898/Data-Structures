@@ -1,49 +1,43 @@
-#include <stdio.h>
 
-int min(int a,int b)
-{
-    if(a>b)
-    return b;
-    else
-    return a;
-}
+0(n2)-inefficient
+public static int maxWater(int[] arr, int n)  
+{ 
+    int res = 0; 
+    for(int i = 1; i < n - 1; i++) 
+    { 
+        // Find maximum element on its left 
+        int left = arr[i]; 
+        for(int j = 0; j < i; j++) 
+            left = Math.max(left, arr[j]); 
+        
+        // Find maximum element on its right 
+        int right = arr[i]; 
+        for(int j = i + 1; j < n; j++) 
+            right = Math.max(right, arr[j]); 
 
-int main()
-{
-    int n;
-    scanf("%d",&n);
-    int a[n];
-    int res=0;
-    
-    for(int i=0;i<n;i++)
-    {
-        scanf("%d",&a[i]);
-    }
-    
-    int l,r;
-    for(int i=1;i<n-1;i++)
-    {
-        r=a[i];
-        for(int j=i+1;j<n;j++)
-        {
-            if(a[j]>r)
-            {
-                r=a[j];
-            }
-        }
-        
-        l=a[i];
-        for(int j=i-1;j>=0;j--)
-        {
-            if(a[j]>l)
-            {
-                l=a[j];
-            }
-        }
-        
-        res = res + min(l,r) - a[i];
-    }
-    
-    printf("%d",res);
-    return 0;
-}
+        res += Math.min(left, right) - arr[i]; 
+    } 
+    return res; 
+} 
+
+
+
+o(n)-stack
+
+static int findWater(int n) 
+    { 
+        int left[] = new int[n]; 
+        int right[] = new int[n]; 
+        int water = 0; 
+        left[0] = arr[0]; 
+        for (int i = 1; i < n; i++) 
+            left[i] = Math.max(left[i - 1], arr[i]); 
+        right[n - 1] = arr[n - 1]; 
+        for (int i = n - 2; i >= 0; i--) 
+            right[i] = Math.max(right[i + 1], arr[i]); 
+ 
+        for (int i = 0; i < n; i++) 
+            water += Math.min(left[i], right[i]) - arr[i]; 
+  
+        return water; 
+    } 
