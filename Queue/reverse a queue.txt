@@ -1,0 +1,24 @@
+void reverseQueue(int q[])
+{
+  if(front>rear)
+    return;
+  int i=dequeue();
+  reverseQueue(q);
+  enqueue(i);
+}
+
+or
+
+static void reverseQueue(QueueArray q)
+{
+  System.out.println();
+Stack<Integer> s=new Stack<>();
+  while(q.front<=q.rear)
+  {
+    s.push(q.dequeue());
+  }
+  while(!s.empty())
+  {
+    q.enqueue(s.pop());
+  }
+}

@@ -1,0 +1,28 @@
+0> highest priority
+
+class PQueueLL
+{
+  public QueueNode front=null,rear=null;
+  public void EnQueue(int data, int priority)
+  {
+    QueueNode new_node=new QueueNode(data,priority);
+    if(front==null ||priority<front.priority)
+    {
+      new_node.next=front;
+      front=new_node;
+    }
+    else{
+      QueueNode temp=front;
+      while(temp.next!=null && temp.next.priority<=priority)
+        temp=temp.next;
+      new_node.next=temp.next;
+      temp.next=new_node;
+    } 
+  }    
+  public int DeQueue()
+  {
+    int temp=front.data;
+    front=front.next;
+    return temp;
+  }    
+}

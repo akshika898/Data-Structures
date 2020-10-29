@@ -1,0 +1,12 @@
+static void reverseKelementsQueue(QueueArray q, int K)
+{
+   if (q.front>q.rear || K >= q.rear+1 || K<=0) 
+            return; 
+  Stack<Integer> s=new Stack<>();
+for(int i=0;i<K;i++)
+  s.push(q.dequeue());
+  while(!s.isEmpty())
+    q.enqueue(s.pop());
+  for(int i=0;i<=q.rear-q.front-K;i++)
+    q.enqueue(q.dequeue());
+}

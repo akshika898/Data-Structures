@@ -1,0 +1,14 @@
+void enqueue(CQStack st1, CQStack st2, int item)
+  {
+    if(!st1.isFull())
+       st1.push(item);
+  }
+int dequeue(CQStack st1, CQStack st2)
+  {
+   while(!st1.isEmpty() &&!st2.isFull())
+         st2.push(st1.pop());
+    int data=st2.pop();
+    while(!st2.isEmpty())
+      st1.push(st2.pop());
+    return data;
+  }

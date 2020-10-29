@@ -1,39 +1,33 @@
-/*
-struct QNode	{	int data; struct QNode *next; };
-struct QueueLL	{	struct QNode *front,*rear; };
-struct QueueLL *main_Queue;
-struct QNode* newElement(int data);
-
-Above strcutures and variables are used for queue.
-Also newElement(int) function will insert a new node and return the address of new node.
-Complete the below two methods. */
-
-int enqueue(int data)
+class QueueNode
 {
-  struct QNode* new_node=newElement(data);
-  if(main_Queue->front==NULL && main_Queue->rear==NULL)
+  int data;
+  QueueNode next;
+  public QueueNode(int data) 
   {
-    main_Queue->front=new_node;
-    main_Queue->rear=new_node;
-    //main_Queue=new_node;
-    return 1;
+    this.data = data;
   }
-  main_Queue->rear->next=new_node;
-  main_Queue->rear=main_Queue->rear->next;
-  return 1;
 }
-
-int dequeue()
+class QueueLinkedList
 {
-  if(main_Queue->front==NULL)
+  public QueueNode front, rear;
+  public void EnQueue(int data)
   {
-    return -1;
-  }
-  int item=main_Queue->front->data;
-  main_Queue->front=main_Queue->front->next;
-  if(main_Queue->front==NULL)
+    QueueNode node=new QueueNode(data);
+if(front==null)
+  front=rear=node;
+    else{
+      rear.next=node;
+      rear=rear.next;
+    }
+  }    
+  public int DeQueue()
   {
-    main_Queue->rear=NULL;
-  }
-  return item;
+if(front==null)
+  return -1;
+    else{
+      int temp=front.data;
+      front=front.next;
+      return temp;
+    }
+  }    
 }
