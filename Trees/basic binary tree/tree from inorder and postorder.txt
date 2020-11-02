@@ -1,0 +1,37 @@
+class Index{
+  int index;
+}
+class Result
+{
+  static Node buildTree(int in[], int post[], int n)
+  {
+    Index p=new Index();
+    p.index=n-1;
+return util(in,post,0,n-1,p);
+  }
+    static Node util(int in[], int post[], int start,int end,Index p)
+  {
+    if(start>end)
+      return null;
+      Node root=new Node(post[p.index]);
+      p.index--;
+      if(start==end)
+        return root;
+      
+      int ind=search(in,start,end,root.data);
+      root.rightChild=util(in,post,ind+1,end,p);
+      root.leftChild=util(in,post,start,ind-1,p);
+      return 
+        root;
+  }
+  static int search(int in[],int s,int e,int d)
+  {
+    int i;
+    for(i=s;i<=e;i++)
+    {
+      if(in[i]==d)
+        break;
+    }
+    return i;
+  }
+}

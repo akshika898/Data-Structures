@@ -4,14 +4,14 @@ static void printLevelWise(Node root)
   for(int i=0;i<=h;i++)
   {
     print(root,i+1);
-    System.out.println(" ");
+    System.out.println();
   }
-
 }
 static void print(Node root,int level)
 {
   if(root==null)
-    return;  if(level==1)
+    return; 
+   if(level==1)
   {
     System.out.print(root.data+" ");
     return ;
@@ -21,9 +21,9 @@ static void print(Node root,int level)
 }
 static int height(Node root)
 {
-  if(root==null)
-    return -1;
-  return 1+Math.max(height(root.leftChild),height(root.rightChild));
+if(root==null)
+  return -1;
+return 1+Math.max(height(root.left),height(root.right));
 }
 
 ------------------------------------------------------
@@ -58,7 +58,7 @@ if(line wise)
     return;
 Queue<Node> q=new LinkedList<Node>();
   q.add(root);
-while(true)
+while(!q.isEmpty())
 {
 c=q.size();
   while(c>0)

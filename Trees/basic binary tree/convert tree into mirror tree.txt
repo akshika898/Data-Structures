@@ -9,8 +9,5 @@
  
         mirror(node.left); 
        mirror(node.right); 
-  
-        
-  
         return node; 
     } 

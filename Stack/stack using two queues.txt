@@ -1,0 +1,25 @@
+/* enqueue(int) & dequeue() are available on queues.*/
+class NewStack
+{
+  int size=0;
+  void push(QueueArray qa1, QueueArray qa2, int item)
+  {
+    qa1.enqueue(item);
+    size++;
+  }
+
+  int pop(QueueArray qa1, QueueArray qa2)
+  {
+    if(size==0)
+      return -1;
+    for(int i=0;i<size-1;i++)
+      qa2.enqueue(qa1.dequeue());
+    int a=qa1.dequeue();
+    size--;
+    for(int i=0;i<size;i++)
+      qa1.enqueue(qa2.dequeue());
+    return a;
+    
+    
+  }
+}
