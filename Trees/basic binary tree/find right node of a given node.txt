@@ -20,10 +20,10 @@ class Result
           return q.remove().data;
         }
       }
-      if(temp.leftChild!=null)
-        q.add(temp.leftChild);
-      if(temp.rightChild!=null)
-        q.add(temp.rightChild);
+      if(temp.left!=null)
+        q.add(temp.left);
+      if(temp.right!=null)
+        q.add(temp.right);
       s--;
       if(s==0)
         s=q.size();

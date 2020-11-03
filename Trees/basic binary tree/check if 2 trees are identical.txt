@@ -1,13 +1,11 @@
-boolean identicalTrees(Node a, Node b)  
-    { 
-        if (a == null && b == null) 
-            return true; 
-              
-    
-        if (a == null || b == null)  
- 	return false; 
-            return (a.data == b.data && identicalTrees(a.left, b.left) 
-                    && identicalTrees(a.right, b.right)); 
+boolean identical(Node a, Node b)  
+{ 
+if (a == null && b == null) 
+   return true; 
+            
+if (a == null || b == null)  
+    return false; 
+return (a.data == b.data && identical(a.left, b.left) 
+             && identical(a.right, b.right)); 
   
-       
-    } 
+} 

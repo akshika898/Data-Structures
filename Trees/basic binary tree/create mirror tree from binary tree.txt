@@ -1,0 +1,10 @@
+static node mirrorify(node root)  
+{  
+    if (root == null)  
+        return null;  
+
+    Node mirror = new Node(root.val);  
+    mirror.right = mirrorify(root.left);  
+    mirror.left = mirrorify(root.right); 
+    return mirror; 
+}

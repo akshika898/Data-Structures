@@ -1,4 +1,4 @@
-  static int count_leaf(Node root)
+   static int count_leaf(Node root)
   {
       if(root==null)
       return 0;
