@@ -1,23 +1,19 @@
 class Tree
 {
-    
     ArrayList<Integer> l=new ArrayList<>();
+
     ArrayList<Integer> noSibling(Node node)
     {
         if(node ==null)
-        {
         return l;
-        }
         l=noSib(node);
         if(l.isEmpty())
-        {
        l.add(-1);
-        }
         return l;
     }
+
     ArrayList<Integer> noSib(Node node)
     {
-        
      if(node.right!=null&&node.left!=null)
        {
            noSib(node.left);
@@ -32,8 +28,7 @@ class Tree
        {
          l.add(node.right.data);
            noSib(node.right);
-       }
-       
+       }    
         return l;
     }
 }

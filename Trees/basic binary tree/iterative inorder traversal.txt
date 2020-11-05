@@ -10,7 +10,7 @@ void inorder()
             { 
                 s.push(curr); 
                 curr = curr.left; 
-            } 
+            }   
             curr = s.pop(); 
             System.out.print(curr.data + " "); 
             curr = curr.right; 

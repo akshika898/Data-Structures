@@ -1,7 +1,6 @@
 ------------------------
 (iterative)
 -----------------------------
-
   static void printOdd(Node root) { 
   Queue<Node> q=new LinkedList<Node>();
     boolean flag=true;

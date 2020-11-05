@@ -1,10 +1,4 @@
-class Tree
-{
-    void leftView(Node root)
-    {
-      left(root,1);
-    }
-    int max=0;
+    int max=0,level=1;
     void left(Node root,int level){
         if(root==null)
         return;
@@ -17,10 +11,8 @@ class Tree
         left(root.right,level+1);
 
     }
- void rightView(Node node) {
-        right(node,1);
-    }
-    int max=0;
+
+    int max=0,level=1;
     void right(Node root,int level)
     {
         if(root==null)
