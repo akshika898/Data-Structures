@@ -1,0 +1,14 @@
+  static int evaluateTree(Node t1) {
+    if(t1==null)
+      return 0;
+if(t1.leftChild==null && t1.rightChild==null)
+    return t1.data;
+  if(t1.data==43)
+    return evaluateTree(t1.leftChild)+evaluateTree(t1.rightChild);
+  else if(t1.data==45)
+    return evaluateTree(t1.leftChild)-evaluateTree(t1.rightChild);
+  else if(t1.data==42)
+    return evaluateTree(t1.leftChild)*evaluateTree(t1.rightChild);
+  else if(t1.data==47)
+    return evaluateTree(t1.leftChild)/evaluateTree(t1.rightChild);
+ }
