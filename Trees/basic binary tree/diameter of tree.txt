@@ -1,0 +1,15 @@
+int diameter;
+public int getDiameter(Node node)
+{
+if(node===null)
+return 0;
+if(node.left==null &&node.rigth==null)
+return 1;
+
+int lh=getDiameter(node.left);
+int rh=getDiameter(node.right);
+
+diameter=Math.max(diametr,lh+rh+1);
+
+return Math.max(lh,rh)+1;
+}
