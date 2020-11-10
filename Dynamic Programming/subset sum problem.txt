@@ -1,0 +1,56 @@
+Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
+Output: True  
+There is a subset (4, 5) with sum 9.
+
+Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 30
+Output: False
+There is no subset that add up to 30.
+
+1) Recursion 
+time: exponential
+
+static boolean Subset(int set[],int n, int sum)
+    {
+        if (sum == 0)
+            return true;
+        if (n == 0)
+            return false;
+ 
+        if (set[n - 1] > sum)
+            return Subset(set, n - 1, sum);
+ 
+        return Subset(set, n - 1, sum)
+            || Subset(set, n - 1, sum - set[n - 1]);
+    }
+
+2- Dynamic prog-better
+time:(sum*n)
+
+static boolean Subset(int set[],int n, int sum)
+    {
+     boolean subset[][] = new boolean[n + 1][sum + 1];
+ 
+        for (int i = 0; i <= n; i++)
+            subset[i][0] = true;
+ 
+        for (int j = 1; j <= sum; j++)
+          {
+            if(j==arr[0])
+	subset[0][j]=true;
+            else
+               subset[0][j] = false;
+           }
+ 
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
+                if (j>= arr[i])
+                    subset[i][j] = subset[i-1][j]
+                                    || subset[i -1][j- set[i]];
+	else
+	     subset[i][j] = subset[i-1][j];
+            }
+        }
+        return subset[n][sum];
+    }
+
+
