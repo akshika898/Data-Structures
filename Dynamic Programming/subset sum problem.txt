@@ -53,4 +53,7 @@ static boolean Subset(int set[],int n, int sum)
         return subset[n][sum];
     }
 
+if we need to count subsets then true false should be 1 ..0 
+and || symbol to +.
+
 
