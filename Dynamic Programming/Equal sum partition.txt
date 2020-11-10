@@ -1,0 +1,42 @@
+class Solution {
+    public boolean canPartition(int[] nums) {
+        int sum=0,n=nums.length;
+        for(int i=0;i<n;i++)
+            sum+=nums[i];
+        if(sum%2!=0)
+            return false;
+        else 
+            return  Partition(nums,n-1,sum/2);
+        
+    }
+        public boolean Partition(int[] a,int n,int sum) {
+            
+            if(sum==0)
+                return true;
+            if(n==0)
+                return false;
+            boolean subset[][]=new boolean[n+1][sum+1];
+            for(int i=0;i<=n;i++)
+                subset[i][0]=true;
+            for(int j=1;j<=sum;j++)
+            {
+               if(j==a[0])
+	          subset[0][j]=true;
+            else
+               subset[0][j] = false;
+            }
+            for(int i=1;i<=n;i++)
+            {
+                for(int j=1;j<=sum;j++)
+                {
+                    if(a[i]<=j)
+                        subset[i][j]=subset[i-1][j] || subset[i-1][j-a[i]];
+                    else
+                        subset[i][j]=subset[i-1][j];
+                }
+            }
+            return subset[n][sum];
+        }
+
+    
+}
