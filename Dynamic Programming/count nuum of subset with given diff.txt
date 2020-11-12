@@ -1,0 +1,45 @@
+target sum is same problem as this
+
+s1-s2=diff
+count possible num of subsets 
+
+way: s1-s2=diff
+s1+s2=sum
+adding
+2s1=diff+sum
+s1=diff+sum/2
+
+---------------------------------------------
+for(int i=0;i<n;i++)
+sum+=arr[i];
+
+sum=(sum+diff)/2;
+//find subset with this sum
+static boolean Subset(int set[],int n, int sum)
+    {
+     int subset[][] = new int[n + 1][sum + 1];
+ 
+        for (int i = 0; i <= n; i++)
+            subset[i][0] = 1;
+ 
+        for (int j = 1; j <= sum; j++)
+          {
+            if(j==arr[0])
+	subset[0][j]=1;
+            else
+               subset[0][j] = 0;
+           }
+ 
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
+                if (j>= arr[i])
+                    subset[i][j] = subset[i-1][j]
+                                    + subset[i -1][j- set[i]];
+	else
+	     subset[i][j] = subset[i-1][j];
+            }
+        }
+        return subset[n][sum];
+    }
+
+
