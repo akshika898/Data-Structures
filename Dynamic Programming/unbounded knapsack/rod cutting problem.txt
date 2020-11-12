@@ -1,0 +1,26 @@
+len  | 1   2   3   4   5   6   7   8  
+--------------------------------------------
+price    | 1   5   8   9  10  17  17  20
+
+lengthOfRod=8
+
+
+rodcut(len,price,arr,length-1,lengthOfRod);
+static boolean rodcut(int len[],int price[],int n, int lengthOfRod)
+    {
+     boolean profit[][] = new boolean[n+1][lengthOfRod + 1];
+ 
+        for (int i = 0; i <= n; i++)
+            profit[i][0] = 0;
+ 
+        for (int i = 0; i <= n; i++) {
+            for (int j = 1; j <= lengthOfRod; j++) {
+                if (j>= arr[i])
+                    profit[i][j] = Math.max(price[i]+profit[i][j- len[i]],
+			profit[i-1][j]);
+	else
+	     profit[i][j] = profit[i-1][j];
+            }
+        }
+        return profit[n][sum];
+    }
