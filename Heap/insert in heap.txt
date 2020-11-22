@@ -1,3 +1,4 @@
+//max heap
  static int a[]=new int[100];
   static int size = -1;
   static void Insert(int element) 
@@ -5,7 +6,7 @@
     size++;
     int i=size;
     a[i] = element;
-    while (i>0 && a[(i-1)/2] > element) 
+    while (i>0 && a[(i-1)/2] < element) 
     {
       a[i] =a[(i-1) / 2];
       i= (i-1) / 2;
