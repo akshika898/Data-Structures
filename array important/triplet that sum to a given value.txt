@@ -1,0 +1,57 @@
+0(n3)
+
+ for (int i = 0; i < arr_size - 2; i++) 
+{ 
+    for (int j = i + 1; j < arr_size - 1; j++)
+       { 
+         for (int k = j + 1; k < arr_size; k++) 
+               { 
+                    if (A[i] + A[j] + A[k] == sum) { 
+                        System.out.print("Triplet is " + A[i] + ", " + A[j] + ", " + A[k]); 
+                } 
+         } 
+} 
+
+0(n2)
+
+
+boolean find3Numbers(int A[], int n, int sum) 
+    { 
+        int l, r; 
+        Arrays.sortort(A); 
+  /* Now fix the first element one by one and find the other two elements */
+        for (int i = 0; i < n - 2; i++) { 
+
+            l = i + 1; /
+            r = arr_size - 1;
+            while (l < r) { 
+                if (A[i] + A[l] + A[r] == sum) { 
+                    System.out.print("Triplet is " + A[i] + ", " + A[l] + ", " + A[r]); 
+                } 
+                else if (A[i] + A[l] + A[r] < sum) 
+                    l++; 
+  
+                else 
+                    r--; 
+            } 
+        } 
+    } 
+
+
+
+
+0(n2)---hashing
+
+        for (int i = 0; i < arr_size - 2; i++) { 
+
+            HashSet<Integer> s = new HashSet<Integer>(); 
+            int curr_sum = sum - A[i]; 
+            for (int j = i + 1; j < arr_size; j++)  
+            { 
+                if (s.contains(curr_sum - A[j]))  
+                    System.out.print("Triplet is,"+  A[i]+ A[j], curr_sum - A[j]);
+ 
+                s.add(A[j]); 
+            } 
+        } 
+  
