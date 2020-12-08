@@ -1,0 +1,70 @@
+0(n2)
+
+class Solution {
+    public int sumSubarrayMins(int[] arr) {
+        int min;
+        int sum=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            min=arr[i];
+            for(int j=i;j<arr.length;j++)
+            {
+                if(min>arr[j])
+                    min=arr[j];
+                sum+=min;
+
+            }
+        }
+        return sum;
+    }
+}
+
+
+0(n)---using stack
+
+
+
+class Solution {
+    public int sumSubarrayMins(int[] arr) {
+      Stack<pair> s1=new Stack<>();
+      Stack<pair> s2=new Stack<>();
+        int n=arr.length;
+        int left[]=new int[n];
+        int right[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            int c=1;
+            while(!s1.isEmpty()&& (s1.peek().f) >arr[i])
+            {
+                c+=s1.peek().s;
+                s1.pop();
+            }
+            s1.push(new pair(arr[i],c));
+            left[i]=c;
+        }
+        for(int i=n-1;i>=0;i--)
+        {
+            int c=1;
+            while(!s2.isEmpty()&& s2.peek().f >=arr[i])
+            {
+                c+=s2.peek().s;
+                s2.pop();
+            }
+            s2.push(new pair(arr[i],c));
+            right[i]=c;
+        }
+        int sum=0;
+        for(int i=0;i<n;i++)
+            sum+=arr[i]*left[i]*right[i];
+        return sum;
+    }
+}
+class pair{
+    int f,s;
+    pair(int first,int second)
+    {
+        f=first;
+        s=second;
+    }
+}
+

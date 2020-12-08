@@ -18,13 +18,12 @@ class Graph
     void BFS(int s)
     {
         boolean visited[] = new boolean[V];
-        LinkedList<Integer> queue = new LinkedList<Integer>();
+        Queue<Integer> queue = new LinkedList<>();
         visited[s]=true;
         queue.add(s);
- 
         while (queue.size() != 0)
         {
-            s = queue.poll();
+            int s=queue.poll();
             System.out.print(s+" ");
             Iterator<Integer> i = adj[s].listIterator();
             while (i.hasNext())
