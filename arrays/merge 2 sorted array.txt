@@ -1,22 +1,23 @@
   int i=0,j=0,k=0;
+int merged[]=new int[asize+bsize]]
   while(i<asize && j<bsize)
   {
     if(a[i]<b[j])
-      mergedArray[k++]=a[i++];
+      merged[k++]=a[i++];
     else
-      mergedArray[k++]=b[j++];
+      merged[k++]=b[j++];
   }
   if(i>=asize)
   {
     while(j<bsize)
-      mergedArray[k++]=b[j++];
+      merged[k++]=b[j++];
   }
   if(j>=bsize)
   {
     while(i<asize)
-      mergedArray[k++]=a[i++];
+      merged[k++]=a[i++];
   }
-  return mergedArray;
+  return merged;
 }
 -----------------------------------------------------------
 

@@ -5,10 +5,6 @@ loop finds freq of the picked element and compares with
 the max so far.
 
 METHOD 2:
-
-public static void main (String[] args) {
-	for(int i=0;i<n;i++)
-	a[i]=sc.nextInt();
 	Arrays.sort(a);
 	int max=1,curr=1,res=a[0];
 	for(int i=1;i<n;i++)
@@ -25,29 +21,34 @@ public static void main (String[] args) {
 	    }
 	}
 	System.out.println(res);
-}
 
-method 3: extra space 
-k--array elements are in range of k-1
-int maxRepeating(int* arr, int n, int k) 
-{ 
-    for (int i = 0; i< n; i++) 
-        arr[arr[i]%k] += k; 
-  
-    int max = arr[0], result = 0; 
-    for (int i = 1; i < n; i++) 
-    { 
-        if (arr[i] > max) 
+
+method 3: hash
+
+Map<Integer, Integer> h= new HashMap<Integer, Integer>(); 
+          
+        for(int i = 0; i < n; i++) 
         { 
-            max = arr[i]; 
-            result = i; 
+            if(h.containsKey(arr[i])) 
+            { 
+                int freq = h.get(arr[i]); 
+                freq++; 
+                h.put(arr[i], freq); 
+            } 
+            else
+            { 
+                h.put(arr[i], 1); 
+            } 
+        }  
+        int max_count = 0, res = -1; 
+        for(Entry<Integer, Integer> val : h.entrySet()) 
+        { 
+            if (val.getValue()>max_count ) 
+            { 
+                res = val.getKey(); 
+                max_count = val.getValue(); 
+            } 
         } 
-    } 
-  
-    /* Uncomment this code to get the original array back 
-       for (int i = 0; i< n; i++) 
-          arr[i] = arr[i]%k; */
-
-    return result; 
-} 
-
+          
+        return res; 
+    
