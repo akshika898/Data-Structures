@@ -20,7 +20,6 @@
 }
 -----------------------------------------------------------
 
-class Solution {
     public void merge(int[] a, int m, int[] b, int n) {
         int j=0;
         for(int i=m;i<a.length;i++)
@@ -30,4 +29,3 @@ class Solution {
         }
         Arrays.sort(a);  
     }
-}

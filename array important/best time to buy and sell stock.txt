@@ -1,0 +1,44 @@
+ith element is the price of a given stock on day i.
+find the maximum profit.
+You cannot sell a stock before you buy one.
+
+Ex 1:
+Inp: [7,1,5,3,6,4]
+Out: 5
+Explan: Buy on day 2 (price = 1) & sell on day 5 (price = 6), profit = 6-1 = 5.
+             Not 7-1 = 6,selling price needs to be larger than buying price.
+
+Ex 2:
+Inp: [7,6,4,3,1]
+Out: 0
+Explan:no transaction. max profit = 0.
+
+0(n2) brute force
+
+public int maxProfit(int prices[]) {
+        int maxprofit = 0;
+        for (int i = 0; i < prices.length - 1; i++) {
+            for (int j = i + 1; j < prices.length; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > maxprofit)
+                    maxprofit = profit;
+            }
+        }
+        return maxprofit;
+    }
+
+
+0(n)
+
+    public int max(int prices[]) {
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minprice)
+                minprice = prices[i];
+            else if (prices[i] - minprice > maxprofit)
+                maxprofit = prices[i] - minprice;
+        }
+        return maxprofit;
+    }
+
