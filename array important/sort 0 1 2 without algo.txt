@@ -1,6 +1,6 @@
 static void sortArr(int arr[], int n) 
     { 
-        int i, cnt0 = 0, cnt1 = 0, cnt2 = 0; 
+        int i,cnt0 = 0, cnt1 = 0, cnt2 = 0; 
       for (i = 0; i < n; i++) { 
             if(arr[i]==0) { 
                 cnt0++; 
@@ -25,10 +25,7 @@ static void sortArr(int arr[], int n)
         } 
 }
 
-
 or
-
-
 
 static void sort012(int a[], int arr_size) 
     { 

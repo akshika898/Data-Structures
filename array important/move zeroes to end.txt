@@ -1,4 +1,3 @@
-class Solution {
     public void moveZeroes(int[] arr) {
         int n=arr.length;
         int temp,c=0;
@@ -12,6 +11,4 @@ class Solution {
                  c = c + 1; 
             }
         }
-        
     }
-}

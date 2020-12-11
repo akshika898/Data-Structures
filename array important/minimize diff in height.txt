@@ -15,14 +15,12 @@ output this difference.
         int small = arr[0] + k; 
         int big = arr[n-1] - k; 
         int temp = 0; 
-          
         if (small > big) 
         { 
             temp = small; 
             small = big; 
             big = temp; 
         } 
-  
         for (int i = 1; i < n-1; i ++) 
         { 
             int subtract = arr[i] - k; 

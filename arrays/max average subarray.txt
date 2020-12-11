@@ -1,3 +1,8 @@
+Given an array consisting of n integers, 
+find the contiguous subarray of given length
+ k that has the maximum average value. 
+And you need to output the maximum
+average value.
 Input: [1,12,-5,-6,50,3], k = 4
 Output: 12.75
 Explanation: Maximum average is 
@@ -5,8 +10,9 @@ Explanation: Maximum average is
 
 
 //o(n)
+assume that we know the sum from index i to index i+k.
+all we need to do is to subtract the element nums[i] from sum and  add nums[k+1].
 
-public class Solution {
     public double findMaxAverage(int[] nums, int k) {
         double sum=0;
         for(int i=0;i<k;i++)
@@ -18,4 +24,4 @@ public class Solution {
         }
         return res/k;
     }
-}
+

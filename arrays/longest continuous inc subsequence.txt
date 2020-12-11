@@ -1,14 +1,11 @@
 Input: nums = [1,3,5,4,7]
 Output: 3
-Ex: The longest cont inc subsequence is [1,3,5] with .
-Example 2:
+Ex: The longest cont inc sub is [1,3,5] 
+
 Input: nums = [2,2,2,2,2]
 Output: 1
-Ex: The longest cont inc subsequence is [2] with length 1. 
-Note that it must be strictly increasing.
+Ex: The longest cont inc sub is [2]  as it must be strictly increasing.
 
-
-class Solution {
     public int findLengthOfLCIS(int[] nums) {
     if(nums.length==0)return 0;
     int len=1;
@@ -26,12 +23,9 @@ class Solution {
     max=Math.max(max,len);
     return max;
     }
-}
-
 
 or
 
-class Solution {
     public int findLengthOfLCIS(int[] nums) {
         int ans = 0, anchor = 0;
         for (int i = 0; i < nums.length; ++i) {
@@ -40,4 +34,3 @@ class Solution {
         }
         return ans;
     }
-}

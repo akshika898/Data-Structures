@@ -18,11 +18,10 @@
 boolean find3Numbers(int A[], int n, int sum) 
     { 
         int l, r; 
-        Arrays.sortort(A); 
-  /* Now fix the first element one by one and find the other two elements */
+        Arrays.sort(A); 
         for (int i = 0; i < n - 2; i++) { 
 
-            l = i + 1; /
+            l = i + 1;
             r = arr_size - 1;
             while (l < r) { 
                 if (A[i] + A[l] + A[r] == sum) { 
@@ -30,15 +29,11 @@ boolean find3Numbers(int A[], int n, int sum)
                 } 
                 else if (A[i] + A[l] + A[r] < sum) 
                     l++; 
-  
                 else 
                     r--; 
             } 
         } 
     } 
-
-
-
 
 0(n2)---hashing
 

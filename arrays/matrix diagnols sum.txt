@@ -18,6 +18,9 @@ better o(n)
     public int diagonalSum(int[][] mat) {
         int n=mat.length,sum=0;
         for(int i=0;i<n;i++)
-             sum+=(i==n-i-1)?mat[i][i]:mat[i][i]+mat[i][n-i-1];
-        return sum;
+             sum+=mat[i][i]+mat[i][n-i-1];
+        return n%2==1?sum-mat[n/2][n/2] : sum;
     }
+
+(if length is odd then middle elemet will be included twice
+ulike in even matrix)

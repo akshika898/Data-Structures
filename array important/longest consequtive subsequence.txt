@@ -1,0 +1,63 @@
+a[] = {2,6,1,9,4,5,3}
+Output: 6
+Explanation: The consecutive numbers 
+here are 1, 2, 3, 4, 5, 6. These 6 
+numbers form the longet.
+
+Input:
+N = 7
+a[] = {1,9,3,10,4,20,2}
+Output: 4
+Explanation: 1, 2, 3, 4 is the longest.
+
+
+o(nlogn)
+
+static int findLongestConseqSubseq(int arr[], int N)
+{
+ArrayList<Integer> l=new ArrayList<>();
+Arrays.sort(arr);
+l.add(arr[0]);
+for(int i=1;i<N;i++)
+    { 
+      if(arr[i]!=arr[i-1])
+         l.add(arr[i]);
+    }
+int c=1,ans=1;
+for(int i=0;i<l.size()-1;i++)
+{
+   if(l.get(i)==l.get(i+1)-1)
+        c++;
+    else
+    {
+       ans=Math.max(ans,c);
+        c=1;
+     }
+ }
+ans=Math.max(ans,c);
+return ans;
+}
+
+
+0(n)--hash
+
+ static int findLongest(int arr[], int n) 
+    { 
+        HashSet<Integer> S = new HashSet<>(); 
+        int ans = 0; 
+        for (int i = 0; i < n; ++i) 
+            S.add(arr[i]); 
+
+        for (int i = 0; i < n; ++i)  
+        { 
+            if (!S.contains(arr[i] - 1))  
+            { 
+                int j = arr[i]; 
+                while (S.contains(j)) 
+                    j++; 
+                if (ans < j - arr[i]) 
+                    ans = j - arr[i]; 
+            } 
+        } 
+        return ans; 
+    } 

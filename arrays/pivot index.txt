@@ -9,7 +9,7 @@ Explanation:
 The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.
 Also, 3 is the first index where this occurs.
 
-class Solution {
+
     public int pivotIndex(int[] nums) {
         int sum=0,ans=0;
         for(int i:nums)
@@ -23,4 +23,3 @@ class Solution {
         }
         return -1;
     }
-}
