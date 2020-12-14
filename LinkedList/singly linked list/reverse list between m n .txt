@@ -1,19 +1,18 @@
 Input: 1->2->3->4->5, m = 2, n = 4
 Output: 1->4->3->2->5
 
-class Solution {
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-            ListNode dummy=new ListNode(0);
+
+public Node reverse(Node head, int m, int n) {
+     Node dummy=new Node(0);
     dummy.next=head;
-    ListNode pre=dummy;
+    Node pre=dummy;
     for(int i=0;i<m-1;++i)
-    {
         pre=pre.next;
-    }
-    ListNode curr=pre.next;
+
+    Node curr=pre.next;
     for(int i=0;i<n-m;++i)
     {
-        ListNode Next=curr.next;
+       Node Next=curr.next;
         curr.next=Next.next;
         Next.next=pre.next;
         pre.next=Next;
@@ -22,4 +21,3 @@ class Solution {
    return dummy.next;    
 }
 
-}

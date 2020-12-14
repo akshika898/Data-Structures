@@ -1,15 +1,15 @@
 //o(m+n)
 
-  static Node findMergePoint(Node headA, Node headB) {
-Set<Node> nodes = new HashSet<>();
+static Node MergePoint(Node headA, Node headB) {
+HashSet<Node> nodes = new HashSet<>();
         Node pa = headA;
         while (pa != null) {
             nodes.add(pa);
             pa = pa.next;
         }
-        if (nodes.isEmpty()) {
+        if (nodes.isEmpty()) 
             return null;
-        }
+        
         Node pb = headB;
         while (pb != null) {
             if (nodes.contains(pb)) {
