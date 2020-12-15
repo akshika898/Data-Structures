@@ -10,21 +10,19 @@ Node slow=head,fast=head;
   return slow.data;
 }
 
-static int findNLast(Node head, int n)
-{
-int c=1;
-  if(head==null)
-    return -1;
-  Node temp=head;
-  while(temp.next!=null){
-   temp=temp.next;
-    c++;
-  }
-  if(n>c)
-    return temp.data;
-  int x=c-n;
-  while(x-->0){
-    head=head.next;
-  }
-  return head.data;
-}
+ int getNthFromLast(Node head, int n)
+    {
+        int c=1;
+        Node temp=head;
+    	while(temp.next!=null)
+    	{
+    	    temp=temp.next;
+    	    c++;
+    	}
+    	if(n>c)
+    	return -1;
+    	int x=c-n;
+    	while(x-->0)
+    	head=head.next;
+    	return head.data;
+    }
