@@ -7,12 +7,12 @@ Node min=head,max=head;
     if(temp.data>max.data)
     {
       max=temp;
-      max_c=c;
+      max_c=c; //no of elements before max
     }
     else if(temp.data<min.data)
     {
       min=temp;
-      min_c=c;
+      min_c=c; //no of elements before min
     }
     c++;
     temp=temp.next;
