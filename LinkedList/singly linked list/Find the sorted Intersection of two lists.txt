@@ -1,24 +1,24 @@
-class Result {
-  static Node findIntersection(Node headA, Node headB) {
-Set<Integer> nodes = new HashSet<>();
-    Node org=new Node(0);
-        Node pb = headB,temp=org;
-        while (pb != null) {
-            nodes.add(pb.data);
-            pb = pb.next;
+public static Node Intersection(Node head1, Node head2)
+    {
+        Node dummy=new Node(0);
+        Node temp=dummy;
+        Node ptr1=head1,ptr2=head2;
+        HashSet<Integer> hs=new HashSet<>();
+        while(ptr1!=null)
+        {
+            hs.add(ptr1.data);
+            ptr1=ptr1.next;
         }
-        if (nodes.isEmpty()) {
-            return null;
-        }
-        Node pa = headA;
-        while (pa != null) {
-            if (nodes.contains(pa.data)) {
-                temp.next=pa;
-              temp=temp.next;
+        while(ptr2!=null)
+        {
+            if(hs.contains(ptr2.data))
+            {
+                hs.remove(ptr2.data);
+               temp.next=ptr2;
+               temp=temp.next;
             }
-            pa = pa.next;
+            ptr2=ptr2.next;
         }
-    temp.next=null;
-        return org.next;
-  }
-}
+        temp.next=null;
+        return dummy.next;
+    }
