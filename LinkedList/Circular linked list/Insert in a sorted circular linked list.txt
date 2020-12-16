@@ -20,7 +20,7 @@ LinkList node=new LinkList(data);
   LinkList prev=head;
   while(temp!=head)
   {
-    if(data<temp.data)
+    if(data>temp.data)
       break;
     prev=temp;
     temp=temp.next;
