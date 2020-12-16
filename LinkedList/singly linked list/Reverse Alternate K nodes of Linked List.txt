@@ -1,6 +1,5 @@
-class Result {
-  static Node revAltKNodes (Node head, int k) {
-	Node curr = head,next = null, prev = null; 
+static Node revAltK (Node head, int k) {
+    Node curr = head,next = null, prev = null; 
         int count = 0; 
           while (curr != null && count < k) { 
             next = curr.next; 
@@ -17,7 +16,6 @@ class Result {
             count++; 
         } 
     if(curr!=null)
-      curr.next=revAltKNodes(curr.next, k);
+      curr.next=revAltK(curr.next, k);
     return prev;
   }
-}

@@ -1,0 +1,20 @@
+public Node mergeKLists(Node[] lists) {
+        PriorityQueue<Integer> minheap=new PriorityQueue<>();
+        for(Node head:lists)
+        {
+            while(head!=null)
+            {
+                minheap.add(head.val);
+                head=head.next;
+            }
+        }
+       Node l=new ListNode(0);
+       Node temp=l;
+        while(!minheap.isEmpty())
+        {
+            temp.next=new ListNode(minheap.remove());
+            temp=temp.next;
+        }
+        return l.next;
+    }
+}

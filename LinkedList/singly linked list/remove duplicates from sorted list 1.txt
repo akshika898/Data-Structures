@@ -1,6 +1,5 @@
-class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
-        ListNode last=head;
+public Node deleteDuplicates(Node head) {
+        Node last=head;
         while(last!=null &&last.next!=null)
         {
             if(last.val==last.next.val)
