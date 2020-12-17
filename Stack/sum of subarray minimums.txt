@@ -1,6 +1,5 @@
 0(n2)
 
-class Solution {
     public int sumSubarrayMins(int[] arr) {
         int min;
         int sum=0;
@@ -17,14 +16,11 @@ class Solution {
         }
         return sum;
     }
-}
 
 
 0(n)---using stack
 
 
-
-class Solution {
     public int sumSubarrayMins(int[] arr) {
       Stack<pair> s1=new Stack<>();
       Stack<pair> s2=new Stack<>();
