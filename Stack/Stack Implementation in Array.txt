@@ -7,7 +7,7 @@ class CQStack
     maxSize=s;
     stack=new int[s];
     top=-1;
-  }
+}
 
   public void push(int j)
   {

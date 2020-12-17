@@ -1,12 +1,9 @@
-import java.util.*;
-class Result
-{
-   static int minReversal(String expr)
+static int minReversal(String expr)
   {
-       Stack<Character> s=new Stack<Character>();
-      if(expr.length()%2!=0)
+  Stack<Character> s=new Stack<>();
+  if(expr.length()%2!=0)
       return -1;
-     for(int i=0;i<expr.length();i++)
+  for(int i=0;i<expr.length();i++)
      {
        char c=expr.charAt(i);
        if(c==']'&&!s.empty())
@@ -28,4 +25,3 @@ class Result
      }
      return (len/2+n%2);
   }
-}

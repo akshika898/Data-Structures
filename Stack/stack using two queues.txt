@@ -1,6 +1,3 @@
-/* enqueue(int) & dequeue() are available on queues.*/
-class NewStack
-{
   int size=0;
   void push(QueueArray qa1, QueueArray qa2, int item)
   {
@@ -19,7 +16,4 @@ class NewStack
     for(int i=0;i<size;i++)
       qa1.enqueue(qa2.dequeue());
     return a;
-    
-    
-  }
 }

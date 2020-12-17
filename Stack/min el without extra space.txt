@@ -29,7 +29,6 @@
             s.push(x); 
             return;
         } 
-  
         if (x < minEle) 
         { 
             s.push(2*x - minEle); 
@@ -37,5 +36,4 @@
         } 
         else
             s.push(x); 
-        } 
-};
+     }
