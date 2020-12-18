@@ -1,6 +1,4 @@
-class Solution
-{
-    int get(Node node,int data,int level)
+int get(Node node,int data,int level)
  {
      if(node==null)
      return 0;
@@ -13,6 +11,4 @@ class Solution
     return l;
     l=get(node.right,data,level+1);
     return l;
-     
- }
 }

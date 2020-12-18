@@ -1,0 +1,9 @@
+public boolean isSiblings(Node root,Node a,Node b)
+{
+if(root==null)
+return false;
+return (root.left==a&&root.right==b) 
+          || (root.left==b&&root.right==a)
+          || isSiblings(root.left,a,b)
+          ||is Siiblings(root.right,a,b);
+}

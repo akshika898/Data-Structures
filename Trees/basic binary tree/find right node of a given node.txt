@@ -1,7 +1,4 @@
-import java.util.*;
-class Result
-{
-  static int findRightSibling(Node root, int key)
+static int findRightSibling(Node root, int key)
   {
     Queue<Node> q= new LinkedList<Node>();
     if(root==null)
@@ -16,9 +13,7 @@ class Result
         if(s==1)
           return -1;
         else
-        {
           return q.remove().data;
-        }
       }
       if(temp.left!=null)
         q.add(temp.left);
@@ -27,8 +22,6 @@ class Result
       s--;
       if(s==0)
         s=q.size();
-
     }
     return -1;
   }
-}

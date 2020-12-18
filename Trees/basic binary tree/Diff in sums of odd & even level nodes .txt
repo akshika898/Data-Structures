@@ -25,15 +25,3 @@ int getLevelDiff(Node root)
     }
  return (odd-even);    
    }
-
----------------------
-recursion
----------------------
-
-    int Diff(Node node)  
-    {  
-        if (node == null) 
-            return 0; 
-  
-        return node.data -Diff(node.left) - Diff(node.right); 
-    } 

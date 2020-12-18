@@ -1,4 +1,3 @@
-class Result {
   static void printCousins(Node root, int k) {
     int level=getLevel(root,k,1);
      if(level==2)
@@ -17,16 +16,16 @@ class Result {
       return;
     }
     if(level==2){
-      if((root.leftChild!=null &&root.leftChild.data==k) ||(root.rightChild!=null&&root.rightChild.data==k))
+      if((root.left!=null &&root.left.data==k) ||(root.right!=null&&root.right.data==k))
         return;
-      if(root.leftChild!=null)
-      System.out.print(root.leftChild.data+" ");
-      if(root.rightChild!=null)
-      System.out.print(root.rightChild.data+" ");
+      if(root.left!=null)
+      System.out.print(root.left.data+" ");
+      if(root.right!=null)
+      System.out.print(root.right.data+" ");
     }
     else if(level>2){
-      print(root.leftChild,k,level-1);
-      print(root.rightChild,k,level-1);
+      print(root.left,k,level-1);
+      print(root.right,k,level-1);
     }
   }
   static int getLevel(Node root,int k,int level)
@@ -35,10 +34,10 @@ class Result {
       return 0;
     if(root.data==k)
       return level;
-     int l=getLevel(root.leftChild,k,level+1);
+     int l=getLevel(root.left,k,level+1);
     if(l!=0)
       return l;
-    return getLevel(root.rightChild,k,level+1);
+    return getLevel(root.right,k,level+1);
     
   }
 }
