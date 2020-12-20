@@ -1,12 +1,8 @@
-class Result {
-  
-  static int isBinarySearchTree(Node root) {
-    
+ static int isBinarySearchTree(Node root) {    
     boolean flag=bst(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
     if(flag==true)
       return 1;
     return 0;
-
   }
   static boolean bst(Node root,int min,int max)
   {
@@ -14,7 +10,7 @@ class Result {
       return true;
     if(root.data<min ||root.data>max)
       return false;
-    return bst(root.leftChild,min,root.data-1) && bst(root.rightChild,root.data+1,max);
+return bst(root.left,min,root.data-1) && bst(root.right,root.data+1,max);
   }
 }
 --------------
