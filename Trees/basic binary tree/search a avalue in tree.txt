@@ -1,13 +1,8 @@
-class Solution
-{
     boolean search(Node node,int data)
  {
      if(node==null)
      return false;
      if(node.data==data)
      return true;
-     
-   return search(node.left,data)|| search(node.right,data);
-    
- }
+     return search(node.left,data)|| search(node.right,data);
 }

@@ -1,4 +1,4 @@
-    void printSpiral(Node node) 
+void printSpiral(Node node) 
     { 
         if (node == null) 
             return;  
