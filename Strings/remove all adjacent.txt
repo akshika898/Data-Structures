@@ -1,0 +1,40 @@
+inp: abbaca
+out: ca
+
+
+    public String remove(String str) {
+        String res="";
+        Stack<Character> s=new Stack<Character>();
+        for(int i=0;i<str.length();i++)
+        {
+            char ch=str.charAt(i);
+          if(!s.empty()&& s.peek() ==ch)
+            s.pop();
+            else
+                s.push(ch);
+        }
+         while(s.size() != 0){
+            res+=s.pop();
+        }
+        return res;
+    }
+
+
+
+or
+
+char ar[]=new char[s.length()];
+int i=0;
+for(int j=0;j<s.length();j++)
+   {
+    char current=s.charAt(i);
+    if(i>0 &&stack[i-1]==current)
+        i--;
+    else
+     {
+        arr[i]=current;
+        i+=1;
+      }
+    }
+return new String(ar,0,i);
+}
