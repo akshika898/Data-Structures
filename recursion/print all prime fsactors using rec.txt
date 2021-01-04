@@ -1,0 +1,12 @@
+void prime(int n,int i)
+{
+  if(n<=1)
+    return ;
+  if(n%i==0)
+  {
+    printf("%d\n",i);
+    prime(n/i,i);
+  }
+  else
+    prime(n,i+1);
+}
