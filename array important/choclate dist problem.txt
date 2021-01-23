@@ -4,7 +4,8 @@ can have variable number of chocolates. There are M students, the task is to dis
 2. The difference between the number of chocolates given to the students having packet with maximum chocolates and 
 student having packet with minimum chocolates is minimum.
 
-
+interview //approach:create all possible subsets of size m and see diff of min and max
+// secnd optimized: sort and then check subarrays diff
 m-sts
 n-packets
 

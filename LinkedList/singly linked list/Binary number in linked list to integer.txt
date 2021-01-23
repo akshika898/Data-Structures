@@ -1,4 +1,4 @@
-public int getDecimalValue(Node head) {
+public int getDecimal(Node head) {
     Node n=reverse(head);
     int i=0;
     int res=0;
@@ -9,7 +9,8 @@ public int getDecimalValue(Node head) {
     }
     return res;   
 }
-public Node reverse(Node l){
+
+Node reverse(Node l){
     Node prev=null,curr=l,next=l;
     while(curr!=null){
        next=curr.next;

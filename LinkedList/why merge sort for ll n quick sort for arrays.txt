@@ -1,9 +1,19 @@
-In linked lists the case is different due to difference in memory allocation of arrays and linked lists. Unlike arrays, 
-linked list nodes may not be adjacent in memory.
+In linked lists the case is different due to 
+difference in memory allocation of arrays and
+linked lists. Unlike arrays, linked list nodes
+may not be adjacent in memory.
 
-Unlike array, in linked list, we can insert items in the middle in O(1) extra space and O(1) time if we are given reference/pointer
- to the previous node. Therefore merge operation of merge sort can be implemented without extra space for linked lists.
+Unlike array, in linked list, we can insert 
+items in the middle in O(1) extra space and 
+O(1) time if we are given reference/pointer
+to the previous node. Therefore merge 
+operation of merge sort can be implemented 
+without extra space for linked lists.
 
-In linked list to access i’th index, we have to travel each node from head to i’th node as we don’t have continuous block of 
-memory. Therefore, the overhead increases for quick sort.
-Merge sort accesses data sequentially and the need of random access is low.
+In linked list to access i’th index, we have to 
+travel each node from head to i’th node as
+ we don’t have continuous block of 
+memory. Therefore, the overhead increases 
+for quick sort.
+Merge sort accesses data sequentially and
+the need of random access is low.

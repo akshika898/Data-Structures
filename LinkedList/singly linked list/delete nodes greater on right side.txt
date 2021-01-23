@@ -1,16 +1,3 @@
-Node reverse(Node head)
-    {
-        Node current = head;
-        Node prev = null;
-        Node next;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        return prev;
-    }
 Node compute(Node head)
     {
         Node rev=reverse(head);
@@ -32,4 +19,15 @@ Node compute(Node head)
         head=reverse(rev);
         return head;
     }
-}
+
+Node reverse(Node head)
+    {
+        Node curr= head,prev = null,next;
+        while (current != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }

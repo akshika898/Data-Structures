@@ -1,4 +1,4 @@
-  static void printCousins(Node root, int k) {
+ static void printCousins(Node root, int k) {
     int level=getLevel(root,k,1);
      if(level==2)
      {

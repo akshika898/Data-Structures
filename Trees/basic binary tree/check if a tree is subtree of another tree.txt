@@ -1,3 +1,17 @@
+boolean Subtree(Node T, Node S)  
+    { 
+        if (S == null)  
+            return true; 
+        if (T == null) 
+            return false; 
+   
+        if (areIdentical(T, S))  
+            return true; 
+   
+        return Subtree(T.left, S) ||Subtree(T.right, S); 
+    } 
+
+
 boolean Identical(Node root1, Node root2)  
     { 
         if (root1 == null && root2 == null) 
@@ -9,17 +23,4 @@ boolean Identical(Node root1, Node root2)
         return (root1.data == root2.data 
                 && Identical(root1.left, root2.left) 
                 && Identical(root1.right, root2.right)); 
-    } 
-   
-    boolean Subtree(Node T, Node S)  
-    { 
-        if (S == null)  
-            return true; 
-        if (T == null) 
-            return false; 
-   
-        if (areIdentical(T, S))  
-            return true; 
-   
-        return Subtree(T.left, S) ||Subtree(T.right, S); 
     } 

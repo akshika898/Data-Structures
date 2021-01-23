@@ -1,4 +1,4 @@
-  static Node addList(Node head1, Node head2) {
+static Node addList(Node head1, Node head2) {
     Node list_node=new Node(0);
     Node a=head1,b=head2,curr=list_node;
     int carry=0;

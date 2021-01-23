@@ -5,5 +5,5 @@ return false;
 return (root.left==a&&root.right==b) 
           || (root.left==b&&root.right==a)
           || isSiblings(root.left,a,b)
-          ||is Siiblings(root.right,a,b);
+          ||is Siblings(root.right,a,b);
 }

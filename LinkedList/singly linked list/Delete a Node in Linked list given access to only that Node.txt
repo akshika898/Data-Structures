@@ -1,10 +1,6 @@
-
-class Result {
-  static void deleteNodeK(Node n1) {
+static void deleteNodeK(Node n1) {
     if(n1==null ||n1.next==null)
       return;
     n1.data=n1.next.data;
-    n1.next=n1.next.next;
-
-  }
+    n1.next=n1.next.next'
 }
