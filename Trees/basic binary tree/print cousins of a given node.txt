@@ -1,12 +1,12 @@
- static void printCousins(Node root, int k) {
+static void printCousins(Node root, int k) {
     int level=getLevel(root,k,1);
      if(level==2)
      {
     System.out.print("-1");
     return;
-  }
+     }
     print(root,k,level);
-  }
+ }
   static int flag=0;
   static void print(Node root,int k,int level)
   {
