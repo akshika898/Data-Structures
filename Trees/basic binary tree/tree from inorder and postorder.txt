@@ -21,8 +21,7 @@ return util(in,post,0,n-1,p);
       int ind=search(in,start,end,root.data);
       root.rightChild=util(in,post,ind+1,end,p);
       root.leftChild=util(in,post,start,ind-1,p);
-      return 
-        root;
+      return root;
   }
   static int search(int in[],int s,int e,int d)
   {

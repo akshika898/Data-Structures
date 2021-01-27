@@ -1,16 +1,16 @@
 2 4 7 3 6 4 1 
 o/p   2 7 6 1 4 3 4 (odd pos then even)
 
-public Node oddEvenList(Node head) {
-        if (head == null)
-            return null;
-        Node odd = head, even = head.next, evenHead = even;
-        while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
-        }
+Node oddEvenList(Node head) {
+   if (head == null)
+        return null;
+    Node odd = head, even = head.next, evenHead = even;
+    while (even !=  null && even.next != null) {
+        odd.next = even.next;
+        odd = odd.next;
+        even.next = odd.next;
+         even = even.next;
+     }
         odd.next = evenHead;
         return head;
     }

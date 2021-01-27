@@ -1,5 +1,5 @@
-public Node mergeKLists(Node[] lists) {
-        PriorityQueue<Integer> minheap=new PriorityQueue<>();
+Node mergeKLists(Node[] lists) {
+   PriorityQueue<Integer> minheap=new PriorityQueue<>();
         for(Node head:lists)
         {
             while(head!=null)

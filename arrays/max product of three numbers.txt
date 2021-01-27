@@ -1,18 +1,16 @@
 //o(nlogn)
 
-public class Solution {
     public int maximumProduct(int[] a) {
         Arrays.sort(a);
         int n=a.length;
         return Math.max(a[0] *a[1] *a[n - 1], a[n - 1] *
                                              a[n - 2] * a[n- 3]);
     }
-}
+
 
 
 //o(n)
 
-public class Solution {
     public int maximumProduct(int[] nums) {
         int min1 = Integer.MAX_VALUE,
              min2 = Integer.MAX_VALUE;
@@ -39,5 +37,4 @@ public class Solution {
         }
         return Math.max(min1 * min2 * max1, 
                           max1 * max2 * max3);
-    }
 }

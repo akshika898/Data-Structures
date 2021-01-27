@@ -1,4 +1,4 @@
-public static Node Intersection(Node head1, Node head2)
+static Node Intersection(Node head1, Node head2)
     {
         Node dummy=new Node(0);
         Node temp=dummy;

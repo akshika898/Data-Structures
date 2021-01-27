@@ -22,8 +22,7 @@ static void removeDuplicate(node head)
     { 
         HashSet<Integer> hs = new HashSet<>(); 
      
-        node current = head; 
-        node prev = null; 
+        node current = head,prev = null; 
         while (current != null)  
         { 
             int curval = current.val;  

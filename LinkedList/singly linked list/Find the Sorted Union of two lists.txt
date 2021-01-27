@@ -1,8 +1,7 @@
 static Node findUnion(Node head1,Node head2) 
 {  
   int hash[15]={0};
-  Node start1=head1;
-  Node start2=head2;
+  Node start1=head1, start2=head2;
   
   while(start1)
   {

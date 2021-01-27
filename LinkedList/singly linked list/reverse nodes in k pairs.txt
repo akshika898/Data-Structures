@@ -13,8 +13,7 @@ int countNodes(Node head)
         return count;
     }
 
-
-    public Node reverseKGroup(Node head, int k) {
+Node reverseKGroup(Node head, int k) {
         Node curr=head,prev=null,next=null;
         int i=0;
         while(curr!=null && i<k)

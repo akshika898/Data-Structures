@@ -1,4 +1,4 @@
-static Node revAltK (Node head, int k) {
+ static Node revAltK (Node head, int k) {
     Node curr = head,next = null, prev = null; 
         int count = 0; 
           while (curr != null && count < k) { 

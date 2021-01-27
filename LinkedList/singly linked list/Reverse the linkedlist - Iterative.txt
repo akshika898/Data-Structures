@@ -1,6 +1,4 @@
-
-class Result {
-  static Node reverseList(Node slow) {
+static Node reverseList(Node slow) {
 Node prev=null,curr=slow,next=slow;
     while(curr!=null)
     {
@@ -10,5 +8,4 @@ Node prev=null,curr=slow,next=slow;
       curr=next;
     }
     return prev;
-  }
 }

@@ -30,16 +30,11 @@ static boolean Subset(int set[],int n, int sum)
     {
      boolean subset[][] = new boolean[n + 1][sum + 1];
  
+        for (int j = 1; j <= sum; j++)
+               subset[0][j] = false;
+        
         for (int i = 0; i <= n; i++)
             subset[i][0] = true;
- 
-        for (int j = 1; j <= sum; j++)
-          {
-            if(j==arr[0])
-	subset[0][j]=true;
-            else
-               subset[0][j] = false;
-           }
  
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= sum; j++) {

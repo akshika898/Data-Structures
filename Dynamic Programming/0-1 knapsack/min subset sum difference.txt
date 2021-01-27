@@ -6,27 +6,24 @@ static boolean Subset(int set[],int n, int sum)
             subset[i][0] = true;
  
         for (int j = 1; j <= sum; j++)
-          {
                subset[0][j] = false;
-           }
  
         for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= sum; j++) {
+            for (int j = 1; j <= sum; j++) { 
                 if (j>= arr[i])
                     subset[i][j] = subset[i-1][j]
                                     || subset[i -1][j- set[i]];
-	else
+	else 
 	     subset[i][j] = subset[i-1][j];
             }
         }
          int diff = Integer.MAX_VALUE;
-         
+          
           for (int j = sum / 2; j >= 0; j--)
         { 
             if (dp[n][j] == true)
             {
-                diff = sum - 2 * j;
-                break;
+                diff = Math.min(diff,sum - 2 * j);
             }
         }
         return diff;
