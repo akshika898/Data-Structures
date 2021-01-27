@@ -1,4 +1,4 @@
-  int i=0,j=0,k=0;
+int i=0,j=0,k=0;
 int merged[]=new int[asize+bsize]]
   while(i<asize && j<bsize)
   {
@@ -20,8 +20,7 @@ int merged[]=new int[asize+bsize]]
   return merged;
 }
 -----------------------------------------------------------
-
-    public void merge(int[] a, int m, int[] b, int n) {
+public void merge(int[] a, int m, int[] b, int n) {
         int j=0;
         for(int i=m;i<a.length;i++)
         {

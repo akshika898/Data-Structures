@@ -3,14 +3,13 @@ Given a flowerbed (represented as an array containing
 return if n new flowers can be planted without violating
 the no-adjacent-flowers rule.
 
-Example 1:
 Input: flowerbed = [1,0,0,0,1], n = 1
 Output: True
-Example 2:
+
 Input: flowerbed = [1,0,0,0,1], n = 2
 Output: False
 
-    public boolean Flowers(int[] a, int n) {
+public boolean Flowers(int[] a, int n) {
         int i = 0, c= 0;
         while (i < a.length) {
             if (a[i] ==0 && (i ==0 ||a[i - 1] == 0) && (i == a.length - 1 || a[i + 1] == 0)) 

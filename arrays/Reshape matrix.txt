@@ -1,14 +1,9 @@
-nums = 
-[[1,2],
- [3,4]]
+nums = [[1,2], [3,4]]
 r = 1, c = 4
 Output: 
 [[1,2,3,4]]
 
-
-
-class Solution {
-    public int[][] matrix(int[][] nums, int r, int c) {
+public int[][] matrix(int[][] nums, int r, int c) {
         int[][] res = new int[r][c];
         if (nums.length == 0 || r * c != nums.length * nums[0].length)
             return nums;

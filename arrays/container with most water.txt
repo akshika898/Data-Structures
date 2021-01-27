@@ -1,6 +1,4 @@
 0(n2) brute
-
-
 public int maxArea(int[] height) {
         int maxarea = 0;
         for (int i = 0; i < height.length; i++)
@@ -11,8 +9,8 @@ public int maxArea(int[] height) {
 
 0(n)
 
-    public int maxArea(int[] h) {
-        int area=0,l=0,r=h.length-1;
+public int maxArea(int[] h) {
+    int area=0,l=0,r=h.length-1;
         while(l<r)
         {
             area=Math.max(area, Math.min(h[l],h[r])*(r-l));
