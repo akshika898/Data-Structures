@@ -2,14 +2,13 @@ Input: nums = [4,2,3]
 Output: true
 You could modify the first 4 to 1 to get a non-decreasing
 array.
-Example 2:
 
 Input: nums = [4,2,1]
 Output: false
 You can't get a non-decreasing array by modify at most 
 one element.
 
- public boolean checkPossibility(int[] nums) {
+ public boolean check(int[] nums) {
        int counter = 0;
        for(int i =0;i<nums.length-1;i++){
             if(nums[i]>nums[i+1])

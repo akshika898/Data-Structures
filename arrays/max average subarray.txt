@@ -9,11 +9,11 @@ Explanation: Maximum average is
 (12-5-6+50)/4 = 51/4 = 12.75
 
 
-//o(n)
+//o(n) : sliding window
 assume that we know the sum from index i to index i+k.
 all we need to do is to subtract the element nums[i] from sum and  add nums[k+1].
 
-    public double findMaxAverage(int[] nums, int k) {
+public double findMaxAvg(int[] nums, int k) {
         double sum=0;
         for(int i=0;i<k;i++)
             sum+=nums[i];
