@@ -1,15 +1,22 @@
-Given an array A of positive integers of size N, where each value represents number of chocolates in a packet. Each packet 
-can have variable number of chocolates. There are M students, the task is to distribute chocolate packets such that :
+Given array A of pos integers of size N where
+each value represents no. of chocolates in a
+packet. Each packet can have variable no. of
+chocolates. There are M students, the task is
+to distribute chocolate packets such that :
 1. Each student gets one packet.
-2. The difference between the number of chocolates given to the students having packet with maximum chocolates and 
-student having packet with minimum chocolates is minimum.
+2. The diff between the no. of chocolates 
+given to the students having packet with 
+max chocolates and student having packet 
+with min chocolates is min.
 
-interview //approach:create all possible subsets of size m and see diff of min and max
-// secnd optimized: sort and then check subarrays diff
+interview approach:create all possible subsets
+of size m and see diff of min and max
+
+optimized: sort and then check subarrays diff
 m-sts
 n-packets
 
-static int findMinDiff(int arr[], int n, int m)
+static int findMin(int arr[], int n, int m)
     {
         if (m == 0 || n == 0)
             return 0;
