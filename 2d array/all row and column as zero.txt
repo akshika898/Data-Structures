@@ -28,7 +28,7 @@ public void setZeroes(int[][] matrix) {
 
 method 2: without extra space
 
-void makeAllZero(int a[ROWS][COLS], int r, int c)
+void makeZero(int a[ROWS][COLS], int r, int c)
 {
     int isCol = 0;
     for (int i = 0; i < r; i++) {

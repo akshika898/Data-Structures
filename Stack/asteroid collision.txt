@@ -1,7 +1,14 @@
-We are given an array asteroids of integers.For each asteroid, the absolute value is its size, and the sign represents its direction
-(pos meaning right, neg meaning left). Each asteroid moves at the same speed.
-Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. 
-If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
+We are given an array asteroids of integers.
+For each asteroid, the absolute value is its 
+size, and the sign represents its direction
+(pos meaning right, neg meaning left). Each 
+asteroid moves at the same speed.
+Find out the state of the asteroids after all 
+collisions. If two asteroids meet, the smaller
+one will explode. 
+If both are the same size, both will explode. 
+Two asteroids moving in the same direction 
+will never meet.
 
 Input: asteroids = [5,10,-5]
 Output: [5,10]
@@ -11,9 +18,8 @@ Input: asteroids = [8,-8]
 Output: []
 Explanation: The 8 and -8 collide exploding each other.
 
-
-    public int[] asteroidCollision(int[] asteroid) {
-        Stack<Integer> s=new Stack<Integer>();
+public int[] Collision(int[] asteroid) {
+   Stack<Integer> s=new Stack<Integer>();
         for(int i=0;i<asteroid.length;i++)
         {
             if(s.isEmpty() || asteroid[i]>0)
@@ -23,16 +29,19 @@ Explanation: The 8 and -8 collide exploding each other.
                 while(true)
                 {
                     int peek=s.peek();
+       // if negative after negative
                     if(peek<0)
                     {
                         s.push(asteroid[i]);
                         break;
                     }
+      // if ex 4 then -4 
                     else if(peek == -asteroid[i])
                     {
                         s.pop();
                         break;
                     }
+      // if 5 then -4 -4 finishes
                     else if(peek>-asteroid[i])
                         break;
                     else

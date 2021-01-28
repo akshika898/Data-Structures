@@ -5,7 +5,6 @@ s = "loveleetcode"
 return 2.
 //return index
 
-class Solution {
     public int firstUniqChar(String s) {
         HashMap<Character, Integer> count = new HashMap<Character, Integer>();
         int n = s.length();
@@ -19,4 +18,3 @@ class Solution {
         }
         return -1;
     }
-}
