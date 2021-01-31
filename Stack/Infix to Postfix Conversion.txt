@@ -15,7 +15,7 @@ static int peek(CQStack s)
 }
 static String infixToPostfix(CQStack s, String exp)
 {
-	String result="";
+   String result="";
   for(int i=0;i<exp.length();i++)
   {
     char ch=exp.charAt(i);

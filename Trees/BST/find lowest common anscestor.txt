@@ -1,4 +1,3 @@
-class Result {
   static int lca(Node root, int k1, int k2) {
     if(root==null ||( root.leftChild==null&&root.rightChild==null))
       return -1;
@@ -13,4 +12,3 @@ class Result {
     }
 return root.data;
   }
-}

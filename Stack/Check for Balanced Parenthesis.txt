@@ -1,7 +1,7 @@
 static int balancedString(String str)
 {
 Stack<Character> s=new Stack<>();
-Int flag=0,i;
+int flag=0,i;
 for(i=0;i<str.length();i++)
     {
       char ch=str.charAt(i);

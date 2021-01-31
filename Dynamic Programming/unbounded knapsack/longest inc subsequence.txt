@@ -1,0 +1,19 @@
+public int lengthOfLIS(int[] a) {
+        if (a.length == 0) 
+            return 0;
+        int[] dp = new int[a.length];
+        dp[0] = 1;
+        int maxans = 1;
+        for(int i=1;i<a.length;i++)
+        {
+           int max=0;
+            for(int j=0;j<i;j++)
+            {
+                if(a[j]<a[i])
+                    max=Math.max(max,dp[j]);
+            }
+            dp[i]=max+1;
+            maxans=Math.max(maxans,dp[i]);
+        }
+        return maxans;
+    }

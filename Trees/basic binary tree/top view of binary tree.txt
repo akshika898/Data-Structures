@@ -1,0 +1,85 @@
+static class pair
+{
+    int first, second;
+    pair(int i, int j)
+    {
+        first = i;
+        second = j;
+    }
+}
+static TreeMap<Integer, pair> m= new TreeMap<>();
+ 
+static void topView(Node root)
+{
+    fillMap(root, 0, 0);
+    for (Map.Entry<Integer, pair> entry : m.entrySet())
+          System.out.print(entry.getValue().first + " ");
+}
+//d is height like -1 to left n +1 to right.
+
+static void fillMap(Node root, int d, int l)
+{
+    if(root == null) 
+       return;
+ 
+    if(m.get(d) == null)
+        m.put(d, new pair(root.data, l));
+
+    else if(m.get(d).second>l)
+        m.put(d, new pair(root.data, l));
+ 
+    fillMap(root.left, d - 1, l + 1);
+    fillMap(root.right, d + 1, l + 1);
+}
+
+---------------------------------------------------------------------------------------------------------------
+or
+
+class Node 
+{ 
+      int data;
+      int hd;  
+      Node left, right;  
+      public Node(int key) 
+       { 
+	data = key; 
+	hd = Integer.MAX_VALUE; 
+	left = right = null; 
+      } 
+} 
+
+public void TopView() 
+{ 
+      if (root == null) 
+	return; 
+      int hd = 0; 
+      Map<Integer, Integer> map = new TreeMap<>(); 
+      Queue<Node> queue = new LinkedList<Node>();
+
+       root.hd = 0; 
+       queue.add(root); 
+
+      while (!queue.isEmpty()) 
+          { 
+              Node temp = queue.remove(); 
+              hd = temp.hd; 
+              if(map.get(hd)==null)
+	    map.put(hd, temp.data);
+
+              if (temp.left != null) 
+	   { 
+	    temp.left.hd = hd-1; 
+	    queue.add(temp.left); 
+	   } 
+
+              if (temp.right != null) 
+	  { 
+	     temp.right.hd = hd+1; 
+                    queue.add(temp.right); 
+	  } 
+            } 
+ 
+	for (Map.Entry<Integer, Integer> entry : m.entrySet())
+                         System.out.print(entry.getValue()+ " ");
+
+}

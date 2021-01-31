@@ -1,22 +1,25 @@
 maxArea(arr,n);	
-public static void maxArea(long[] a,int n) {
-Stack<Integer> s = new Stack<>();
-long left[]=new long[n];
-left[0]=-1;
-s.push(0);
-for(int i=1;i<n;i++)
-  {
-  while(!s.empty()&&a[s.peek()]>=a[i])
-      s.pop();
- if(!s.empty())
-    left[i]=s.peek();
-else
-   left[i]=-1;
-s.push(i);
+public static void maxArea(long[] a,int n)
+ {
+   Stack<Integer> s = new Stack<>();
+   long left[]=new long[n];
+   left[0]=-1;
+   s.push(0);
+
+   for(int i=1;i<n;i++)
+    {
+    while(!s.empty()&&a[s.peek()]>=a[i])
+        s.pop();
+    if(!s.empty())
+        left[i]=s.peek();
+    else
+        left[i]=-1;
+    s.push(i);
     }
-Stack<Integer> s1 = new Stack<>();
-long right[]=new long[n];
-for(int i=n-1;i>=0;i--)
+
+  Stack<Integer> s1 = new Stack<>();
+  long right[]=new long[n];
+  for(int i=n-1;i>=0;i--)
     {
      while(!s.empty()&&a[s.peek()]>=a[i])
          s.pop();
@@ -26,13 +29,15 @@ for(int i=n-1;i>=0;i--)
        right[i]=n;
     s.push(i);
     }
+
   for(int i=0;i<n;i++)
      right[i]=(right[i]-left[i]-1)*a[i];
- long max=right[0];
- for(int i=1;i<n;i++)
+
+   long max=right[0];
+   for(int i=1;i<n;i++)
      {
-  if(right[i]>max)
-  max=right[i];
+        if(right[i]>max)
+             max=right[i];
      }
-System.out.println(max);
+   System.out.println(max);
    }
