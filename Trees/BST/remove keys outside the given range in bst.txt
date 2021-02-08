@@ -1,0 +1,23 @@
+static Node Range(Node root, int min, int max) 
+    {
+        if(root == null)
+            return null;
+         
+        root.left = Range(root.left, min, max);
+        root.right=Range(root.right,min, max);
+         
+        if(root.key < min) 
+        {
+            Node rchild = root.right;
+            root = null;
+            return rchild;
+        }
+       if(root.key > max) 
+        {
+            Node lchild = root.left;
+            root = null;
+            return lchild;
+        }
+       return root;
+    }
+ 

@@ -9,9 +9,10 @@
    while (curr.data %2 !=0 && curr != end) 
         { 
             new_end.next = curr;  
-            new_end.next.next = null; 
-            new_end = new_end.next; 
             curr=curr.next;
+            curr.next = null; 
+            new_end = new_end.next; 
+        
         } 
 
         if (curr.data %2 ==0) 

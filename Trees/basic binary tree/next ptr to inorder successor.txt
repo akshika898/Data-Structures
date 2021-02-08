@@ -1,0 +1,14 @@
+public static Node setNextNode(Node curr, Node prev)
+    {
+        if (curr == null) {
+            return prev;
+        }
+        prev = setNextNode(curr.left, prev);
+
+        if (prev != null) {
+            prev.next = curr;
+        }
+         prev = curr;
+
+        return setNextNode(curr.right, prev);
+    }
