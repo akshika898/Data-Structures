@@ -13,6 +13,8 @@
 return bst(root.left,min,root.data-1) && bst(root.right,root.data+1,max);
   }
 }
+
+
 --------------
 inorder method
 ------------------

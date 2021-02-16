@@ -1,18 +1,16 @@
-class Solution {
-    public TreeNode sortedArrayToBST(int[] nums) {        
-        return BST(nums, 0, nums.length - 1);
-    }
+public Node sortedArrayToBST(int[] nums) {        
+  return BST(nums, 0, nums.length - 1);
+}
     
-    public TreeNode BST(int[] nums, int lo, int hi) {
-        if (lo > hi) return null;
-        
+public Node BST(int[] nums, int lo, int hi) {
+        if (lo > hi) 
+           return null;
+  
         int mid = lo + ((hi - lo) / 2);
-        
-        TreeNode node = new TreeNode(nums[mid]);
+        Node node = new Node(nums[mid]);
         
         node.left = BST(nums, lo, mid-1);
         node.right = BST(nums, mid+1, hi);
         
         return node;
     }
-}

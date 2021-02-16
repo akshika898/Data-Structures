@@ -42,7 +42,7 @@ static Node findMergePoint(Node head1,Node head2)
     start1=start1->next;
   }
   
-  return NULL;
+  return null;
 }
 
 

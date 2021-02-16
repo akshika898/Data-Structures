@@ -1,12 +1,11 @@
 0(n2)-worst time if it is left skewed tree
 
-class Solution{
-        static int largestBst(Node root)
+  static int largestBst(Node root)
         {
             if(root==null)
-            return 0;
+                return 0;
             if(bst(root,Integer.MIN_VALUE,Integer.MAX_VALUE))
-            return size(root);
+                 return size(root);
             return Math.max(largestBst(root.left),largestBst(root.right));
         }
         static int size(Node root)

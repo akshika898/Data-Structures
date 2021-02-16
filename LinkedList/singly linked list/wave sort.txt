@@ -1,0 +1,35 @@
+list[0] >= list[1] <= list[2] >= …..
+//theorm: check even position elemnts
+check next and prev both should be greater
+
+static Node sortInWave( Node head)
+{
+    Node current = head;
+    Node prev = null;
+    int i = 0;
+    int n = listSize(head);
+
+    while (i < n) 
+    {
+        if (i % 2 == 0)
+        {
+            if (i > 0 && (prev.data > current.data))
+            {
+                int t = prev.data;
+                prev.data = current.data;
+                current.data = t;
+            }
+            if (i < n - 1 && (current.data < current.next.data))
+            {
+                int t = current.next.data;
+                current.next.data = current.data;
+                current.data = t;
+            }
+        }
+        i++;
+        prev = current;
+        current = current.next;
+    }
+    return head;
+}
+ 

@@ -1,14 +1,7 @@
-public static Node findMinimum(Node root)
-{
-    while (root.left != null) 
-        root = root.left;
-return root;
-}
 Node succ = null;
-public static Node findSuccessor(Node root, int key)
-{
-
- if (root == null)
+static Node findSuccessor(Node root, int key)
+   {
+     if (root == null)
          return succ;
 
    if (root.data == key) 
@@ -18,16 +11,22 @@ public static Node findSuccessor(Node root, int key)
     }
 
   else if (key < root.data)
-{
+    {
       succ=root;
        return findSuccessor(root.left, prec, key);
-}
+    }
 
   else
        return findPredecessor(root.right, prec, key);
      return succ;
- 
 }
+
+ static Node findMinimum(Node root)
+  {
+    while (root.left != null) 
+        root = root.left;
+    return root;
+  }
 
 
 

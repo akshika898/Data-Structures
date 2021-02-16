@@ -1,20 +1,16 @@
 Node compute(Node head)
     {
         Node rev=reverse(head);
-        Node curr=rev,max=rev;
-        while(curr!=null && curr.next!=null)
+        Node curr=rev,max=curr.data;
+        while( curr.next!=null)
         {
-            if(curr.next.data<max.data)
+            if(curr.next.data>max)
             {
-               Node temp=curr.next;
-               curr.next=temp.next;
-               temp=null;
+               max=curr.next.data;
+                curr=curr.next;
             }
             else
-            {
-                curr=curr.next;
-                max=curr;
-            }
+                curr.next=curr.next.next;
         }
         head=reverse(rev);
         return head;

@@ -1,6 +1,6 @@
-static boolean checkForTriplet(Node root, int sum) 
+static boolean Triplet(Node root, int sum) 
 { 
-    Vector<Integer> vec = new Vector<Integer>(); 
+    Vector<Integer> vec = new Vector<>(); 
     inorder(root, vec); 
     int strt, end; 
 

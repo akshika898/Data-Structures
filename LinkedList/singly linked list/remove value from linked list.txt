@@ -17,4 +17,3 @@ public Node remove(Node head, int val) {
   }
         return head;
     }
-}

@@ -22,7 +22,6 @@ public Node partition(Node head, int x) {
             }
             head = head.next;
         }
-
         after.next = null;
         before.next = after_head.next;
         return before_head.next;

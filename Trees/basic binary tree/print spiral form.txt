@@ -17,7 +17,7 @@ void printSpiral(Node node)
                     s2.push(temp.left); 
             } 
   
-                 while (!s2.empty()) { 
+            while (!s2.empty()) { 
                 Node temp =s2.pop(); 
                 System.out.print(temp.data + " "); 
   
