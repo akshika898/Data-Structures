@@ -1,0 +1,14 @@
+public void sumRoot(Node root,int i)
+{
+ if(root==null)
+    return;
+
+ if(root.left==null && root.right==null)
+ {
+    sum+=(i*10)+root.data;
+    return;
+ }
+
+  sumRoot(root.left,i*10+root.data);
+  sumRoot(root.right,i*10+root.data);
+}
