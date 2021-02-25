@@ -1,0 +1,71 @@
+            1                    1
+          /   \                /  \
+         2     3             2      3
+        / \    \             \     /  \
+      4    5    6              4  5    6
+
+
+Node shiftRight(Node root)
+{
+    if (!root)
+        return null;
+ 
+    stack<Node> st=new Stack<>();
+    queue<Node> q=new LinkedList<>();
+
+    if (root.right)
+        q.push(root.right);
+    root.right = null;
+
+    if (root.left)
+        q.push(root.left);
+    root.left = NULL;
+
+    st.push(root);
+ 
+    while (!q.empty()) {
+
+        int n = q.size();
+        stack<Node> temp;
+        while (n--) {
+ 
+            // If no right child exists
+            if (st.peek().right==null)
+                st.peek().right = q.peek();
+ 
+            // If no left child exists
+            else {
+                st.peek().left = q.peek();
+                st.pop();
+            }
+ 
+            // If r̥ight child exist
+            if (q.peek().right)
+                q.push(q.peek().right);
+ 
+            // Vacate right child
+            q.peek().right = NULL;
+ 
+            // If left child exists
+            if (q.peek().left)
+                q.push(q.peek().left);
+ 
+            // Vacate left child
+            q.peek().left = NULL;
+            temp.push(q.peek());
+            q.pop();
+        }
+ 
+        while (!st.empty())
+            st.pop();
+
+        while (!temp.empty()) {
+ 
+            st.push(temp.top());
+            temp.pop();
+        }
+    }
+    return root;
+}
+ 
+                  
