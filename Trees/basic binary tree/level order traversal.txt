@@ -60,7 +60,7 @@ Queue<Node> q=new LinkedList<Node>();
   q.add(root);
 while(!q.isEmpty())
 {
-c=q.size();
+  c=q.size();
   while(c>0)
   { 
 

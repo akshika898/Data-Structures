@@ -26,8 +26,7 @@ public class Main{
     return node;
   }
   
-  
-    static Node insert(int arr[], Node root, int i, int n)
+  static Node insert(int arr[], Node root, int i, int n)
   {
     if (i < n)
     {
