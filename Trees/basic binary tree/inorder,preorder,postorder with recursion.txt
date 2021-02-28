@@ -2,7 +2,7 @@ static void inorder(Node root)
 {
   if(root==null)
     return;
-inorder(root.leftChild);
+  inorder(root.leftChild);
   System.out.print(root.data+" ");
   inorder(root.rightChild);
 }
