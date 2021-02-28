@@ -12,3 +12,19 @@ int get(Node node,int data,int level)
     l=get(node.right,data,level+1);
     return l;
 }
+
+
+or
+
+int get(Node node,int data,int level)
+ {
+     if(node==null)
+        return 0;
+     int l;
+     if(node.data==data)
+         return level;
+     
+    if(get(node.left,data,level+1))
+    return l;
+    return get(node.right,data,level+1);
+}

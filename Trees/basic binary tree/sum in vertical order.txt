@@ -1,0 +1,41 @@
+    private void VerticalSumUtil(TreeNode root, int hD, TreeMap<Integer, Integer> hM) 
+         { 
+   
+        if (root == null) 
+              return; 
+        
+        int prevSum = (hM.get(hD) == null) ? 0 : hM.get(hD); 
+        hM.put(hD, prevSum + root.key()); 
+   
+        VerticalSumUtil(root.left(), hD - 1, hM);
+   
+        VerticalSumUtil(root.right(), hD + 1, hM); 
+    } 
+
+
+
+to get vertical order traversal 
+
+void VerticalTraversalUtil(TreeNode root, int hd, TreeMap<Integer, ArrayList<Integer>> hm) 
+         { 
+   
+        if (root == null) 
+              return; 
+
+        if(hm.get(hd)==null)
+        {
+            ArrayList<Integer> a=new ArrayList<>();
+            a.add(root.val);
+            hm.put(hd,a);
+        }
+         else
+         {
+             ArrayList<Integer> a=hm.get(hd);
+            a.add(root.val);
+            hm.put(hd,a); 
+         }
+   
+        VerticalTraversalUtil(root.left, hd - 1, hm);
+        VerticalTraversalUtil(root.right, hd + 1, hm); 
+
+    } 

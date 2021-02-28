@@ -51,7 +51,7 @@ class Node
 public void TopView() 
 { 
       if (root == null) 
-	return; 
+            return; 
       int hd = 0; 
       Map<Integer, Integer> map = new TreeMap<>(); 
       Queue<Node> queue = new LinkedList<Node>();
@@ -78,8 +78,7 @@ public void TopView()
                     queue.add(temp.right); 
 	  } 
             } 
- 
-	for (Map.Entry<Integer, Integer> entry : m.entrySet())
+          for (Map.Entry<Integer, Integer> entry : m.entrySet())
                          System.out.print(entry.getValue()+ " ");
 
 }

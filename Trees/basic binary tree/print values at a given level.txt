@@ -11,3 +11,19 @@ static void print(Node root,int level)
       print(root.right,level-1);
       
   }
+
+
+to count nodes in a level 
+or width of level
+
+
+static void width(Node root,int level)
+  {
+      if(root==null)
+      return;
+      if(level==1)
+            return1;
+      }
+      return print(root.left,level-1)+print(root.right,level-1);
+      
+  }

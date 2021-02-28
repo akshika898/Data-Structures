@@ -10,3 +10,19 @@ return (a.data == b.data && identical(a.left, b.left)
              && identical(a.right, b.right)); 
   
 } 
+
+
+check if trees are mirror
+
+boolean identical(Node a, Node b)  
+{ 
+if (a == null && b == null) 
+   return true; 
+            
+if (a == null || b == null)  
+    return false; 
+
+return (a.data == b.data && identical(a.left, b.right) 
+             && identical(a.right, b.left)); 
+  
+} 
