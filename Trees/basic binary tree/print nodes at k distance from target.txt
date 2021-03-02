@@ -1,4 +1,4 @@
-    int printkdistanceNode(Node node, Node target, int k)  
+int printkdistanceNode(Node node, Node target, int k)  
     { 
         if (node == null) 
             return -1; 

@@ -45,8 +45,9 @@ static void merge(Node root1, Node root2)
         else
         {
              
-            // As this node is the leftmost node, it is certain that it will not have a let child so we simply assign this
-            // node's right pointer, which can be either null or not, to its parent's left pointer. This statement is just doing the task of deleting the node
+            // As this node is the leftmost node, it is certain that it will not have a left child so we simply assign this
+            // node's right pointer, which can be either null or not, to its parent's left pointer. 
+            // This statement is just doing the task of deleting the node
             prev1.left = temp1.right;
             merge(root1, root2);
         }

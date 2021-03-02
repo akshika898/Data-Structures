@@ -13,7 +13,6 @@
     } 
 
 
-
 to get vertical order traversal 
 
 void VerticalTraversalUtil(TreeNode root, int hd, TreeMap<Integer, ArrayList<Integer>> hm) 
@@ -34,8 +33,6 @@ void VerticalTraversalUtil(TreeNode root, int hd, TreeMap<Integer, ArrayList<Int
             a.add(root.val);
             hm.put(hd,a); 
          }
-   
         VerticalTraversalUtil(root.left, hd - 1, hm);
         VerticalTraversalUtil(root.right, hd + 1, hm); 
-
     } 

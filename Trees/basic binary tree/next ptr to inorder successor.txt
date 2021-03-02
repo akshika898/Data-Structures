@@ -1,8 +1,8 @@
 public static Node setNextNode(Node curr, Node prev)
     {
-        if (curr == null) {
+        if (curr == null) 
             return prev;
-        }
+ 
         prev = setNextNode(curr.left, prev);
 
         if (prev != null) {

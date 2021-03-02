@@ -1,10 +1,10 @@
 public void Binary(Node root) 
 { 
-   
     if (root == null) 
         return; 
    
     Binary(root.left); 
+
     if (prev == null) 
         head = root; 
     else
@@ -12,6 +12,7 @@ public void Binary(Node root)
         root.left = prev; 
         prev.right = root; 
     } 
-    prev = root;   
+    prev = root; 
+  
     Binary(root.right); 
 } 

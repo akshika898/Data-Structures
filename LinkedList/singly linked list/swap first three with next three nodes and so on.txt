@@ -28,14 +28,13 @@ static Node rearrange(Node head,int k)
 or
 
 
-static Node rearrange(Node head,int k)
+ static Node rearrange(Node head,int k)
   {
       if(head==null || head.next==null)
         return null;
       Node temp=new Node(0);
       temp.next=head;
-      Node curr=temp;
-      Node head1=curr,head2=curr;
+      Node curr=temp, head1=curr,head2=curr;
       while(head2.next!=null &&head1.next!=null)
       {
           int i=0;
@@ -50,15 +49,13 @@ static Node rearrange(Node head,int k)
           {
               head2=head2.next;
               i++;
-          }
-          Node first=curr.next;
-          Node second=head1.next;
-
+          };
+          Node ptr=head1.next;
           if(head1!=head2)
           {
           head1.next=head2.next;
-          head2.next=first;
-          curr.next=second; 
+          head2.next=curr.next;
+          curr.next=ptr; 
           curr=head1;
           head2=head1;
           }

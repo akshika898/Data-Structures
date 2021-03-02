@@ -10,5 +10,11 @@
             else if (maxLen == len && maxSum < sum) 
                 maxSum = sum; 
             return; 
+            
+         sumOfLongRootToLeafPath(root.left, sum + root.data, 
+                                len + 1); 
+          
+        sumOfLongRootToLeafPath(root.right, sum + root.data, 
+                                len + 1); 
      } 
           

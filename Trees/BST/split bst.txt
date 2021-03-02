@@ -1,3 +1,31 @@
+void splitBST(node* root, int k)
+{
+    int numNode = sizeOfTree(root);
+    int inOrder=new int[numNode + 1];
+    int index = 0;
+ 
+    storeInorder(root, inOrder, index);
+ 
+    int splitIndex = getSplittingIndex(inOrder, index, k);
+ 
+    Node root1 = NULL;
+    Node root2 = NULL;
+ 
+    if (splitIndex != -1)
+        root1 = createBST(inOrder, 0, splitIndex);
+
+    if (splitIndex != (index - 1))
+        root2 = createBST(inOrder, splitIndex + 1,index - 1);
+
+    if (root1 != NULL) {
+        inorder(root1);
+    }
+
+    if (root2 != NULL) {
+        inorder(root2);
+    }
+}
+
 int sizeOfTree(Node root)
 {
     if (root == NULL) 
@@ -45,31 +73,3 @@ Node createBST(int inOrder[], int start, int end)
     return t;
 }
  
-void splitBST(node* root, int k)
-{
-    int numNode = sizeOfTree(root);
-
-    int inOrder=new int[numNode + 1];
-    int index = 0;
- 
-    storeInorder(root, inOrder, index);
- 
-    int splitIndex = getSplittingIndex(inOrder, index, k);
- 
-    Node root1 = NULL;
-    Node root2 = NULL;
- 
-    if (splitIndex != -1)
-        root1 = createBST(inOrder, 0, splitIndex);
-
-    if (splitIndex != (index - 1))
-        root2 = createBST(inOrder, splitIndex + 1,index - 1);
-
-    if (root1 != NULL) {
-        inorder(root1);
-    }
-
-    if (root2 != NULL) {
-        inorder(root2);
-    }
-}
