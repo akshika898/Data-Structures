@@ -38,6 +38,6 @@ output this difference.
             else
                 big = add; 
         } 
-  
+
         return Math.min(ans, big - small); 
     } 

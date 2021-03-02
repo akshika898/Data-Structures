@@ -10,7 +10,6 @@ class Node
 	left = right = null; 
       } 
 } 
-
 public void BottomView() 
 { 
       if (root == null) 

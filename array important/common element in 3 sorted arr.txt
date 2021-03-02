@@ -9,7 +9,6 @@ ar2[] = {3, 4, 5, 5, 10}
 ar3[] = {5, 5, 10, 20}
 Output: 5, 5
 
-
 void Common(int ar1[], int ar2[], int ar3[]) 
     { 
         int i = 0, j = 0, k = 0;  
@@ -22,13 +21,10 @@ void Common(int ar1[], int ar2[], int ar3[])
               j++; 
               k++; 
              } 
- 
              else if (ar1[i] < ar2[j]) 
                  i++; 
- 
              else if (ar2[j] < ar3[k]) 
                  j++; 
-  
              else
                  k++; 
         } 

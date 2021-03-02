@@ -1,0 +1,67 @@
+static Node reverseK(Node head,int k)
+{
+    Node curr=head,next=null,prev=null;
+    int i=0;
+    if(head==null)
+    return null;
+    while(curr!=null &&i<k)
+    {
+        next=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+        i++;
+    }
+    if(next!=null)
+    head.next=reverseK(next,k);
+    return prev;
+}
+
+static Node rearrange(Node head,int k)
+{
+    if(head==null)
+    return null;
+    head=reverseK(head,k);
+    return reverseK(head,k*2);
+}
+
+or
+
+
+static Node rearrange(Node head,int k)
+  {
+      if(head==null || head.next==null)
+        return null;
+      Node temp=new Node(0);
+      temp.next=head;
+      Node curr=temp;
+      Node head1=curr,head2=curr;
+      while(head2.next!=null &&head1.next!=null)
+      {
+          int i=0;
+          while(i<k &&head1.next!=null)
+          {
+              head1=head1.next;
+              head2=head2.next;
+              i++;
+          }
+          i=0;
+          while(i<k &&head2.next!=null)
+          {
+              head2=head2.next;
+              i++;
+          }
+          Node first=curr.next;
+          Node second=head1.next;
+
+          if(head1!=head2)
+          {
+          head1.next=head2.next;
+          head2.next=first;
+          curr.next=second; 
+          curr=head1;
+          head2=head1;
+          }
+      }
+      return temp.next;
+  }

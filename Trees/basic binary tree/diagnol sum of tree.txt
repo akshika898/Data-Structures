@@ -3,7 +3,8 @@
   if(root==null)
     return;
 Queue<Node> q=new LinkedList<Node>();
-  q.add(root);
+q.add(root);
+
 while(!q.isEmpty())
 {
   c=q.size();
@@ -14,11 +15,12 @@ int sum=0;
   while(top!=null)
   {
    sum+=top.data;
+
     if(top.left!=null)
       q.add(top.left);
 
     top=top.right;
-   }
+    }
     c--;
   }
 System.out.println(sum+" ");
