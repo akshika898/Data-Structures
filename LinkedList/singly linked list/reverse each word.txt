@@ -1,0 +1,50 @@
+Input: I love Geeks for Geeks     Output: Geeks for Geeks love I
+
+static Node Reverse(Node header) 
+    { 
+        if (header == null) 
+            return header; 
+  
+        Node wordStartPosition = header; 
+        Node endOfSentence = null; 
+        Node sentenceStartPosition = null; 
+
+        while (header != null && header.Data != ' ') { 
+ 
+            endOfSentence = header; 
+            header = header.Next; 
+        } 
+  
+        if (header == null) { 
+            header = wordStartPosition; 
+            return header; 
+        } 
+  
+        do { 
+  
+            // Swapping the space ie. convert 'practice<space>' to '<space>practice' 
+
+            Node temp = header.Next; 
+            header.Next = wordStartPosition; 
+            wordStartPosition = header; 
+            header = temp; 
+  
+            Node prev = null; 
+            sentenceStartPosition = header; 
+
+            while (header != null && header.Data != ' ') { 
+                prev = header; 
+                header = header.Next; 
+            } 
+            prev.Next = wordStartPosition; 
+ 
+            wordStartPosition = sentenceStartPosition; 
+            if (header == null) 
+                break; 
+
+        } while (header != null); 
+  
+        header = sentenceStartPosition; 
+        endOfSentence.Next = null; 
+        return header; 
+    } 

@@ -28,29 +28,22 @@ Node shiftRight(Node root)
         int n = q.size();
         stack<Node> temp;
         while (n--) {
- 
-            // If no right child exists
+
             if (st.peek().right==null)
                 st.peek().right = q.peek();
- 
-            // If no left child exists
+
             else {
                 st.peek().left = q.peek();
                 st.pop();
             }
- 
-            // If r̥ight child exist
             if (q.peek().right)
                 q.push(q.peek().right);
  
-            // Vacate right child
             q.peek().right = NULL;
  
-            // If left child exists
             if (q.peek().left)
                 q.push(q.peek().left);
  
-            // Vacate left child
             q.peek().left = NULL;
             temp.push(q.peek());
             q.pop();
@@ -59,11 +52,8 @@ Node shiftRight(Node root)
         while (!st.empty())
             st.pop();
 
-        while (!temp.empty()) {
- 
-            st.push(temp.top());
-            temp.pop();
-        }
+        while (!temp.empty()) 
+            st.push(temp.pop());
     }
     return root;
 }
